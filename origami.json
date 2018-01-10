@@ -37,6 +37,12 @@
 			"description": "shows a success alert banner"
 		},
 		{
+			"name": "payment-failure-error",
+			"template": "demos/src/payment-failure.mustache",
+			"description": "shows an error alert banner to tell the user to update their payment details",
+			"js": "demos/src/demo.js"
+		},
+		{
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",
 			"hidden": true,

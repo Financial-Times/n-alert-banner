@@ -70,6 +70,9 @@ export default {
 	},
 
  closeButton: (alertBannerElement) => {
+	 console.log('================')
+	 console.log("alertBannerElement", alertBannerElement);
+	 console.log('================')
 
 		const options = alertBannerElement.options
 		const closeButton = document.createElement('a');
