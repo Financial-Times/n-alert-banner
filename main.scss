@@ -1,0 +1,20 @@
+$class: 'n-alert-banner';
+
+@import 'o-buttons/main';
+@import 'o-colors/main';
+@import 'o-grid/main';
+@import "o-icons/main";
+@import 'o-typography/main';
+@import 'o-visual-effects/main';
+
+@import "src/scss/color-use-cases";
+@import "src/scss/variables";
+@import "src/scss/alert-banner/alert-mixins";
+@import "src/scss/alert-banner/alert";
+
+@import "src/scss/alert-banner/alert-types/error/error-mixins";
+@import "src/scss/alert-banner/alert-types/error/error";
+@import "src/scss/alert-banner/alert-types/neutral/neutral-mixins";
+@import "src/scss/alert-banner/alert-types/neutral/neutral";
+@import "src/scss/alert-banner/alert-types/success/success-mixins";
+@import "src/scss/alert-banner/alert-types/success/success";

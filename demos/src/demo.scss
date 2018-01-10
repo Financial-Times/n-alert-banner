@@ -1,0 +1,18 @@
+@import '../../main';
+
+body {
+	font-family: MetricWeb;
+	min-height: 350px;
+	background-color: oColorsGetPaletteColor('paper');
+}
+
+.demo-buttons {
+	padding: 20px 0 0 20px;
+}
+.demo-button {
+	@include oButtons($size: big);
+}
+
+.n-alert-banner--static {
+	position: static !important; // sass-lint:disable-line no-important
+}

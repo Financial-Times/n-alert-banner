@@ -1,0 +1,52 @@
+
+	// Base n-alert-banner styles
+	.#{$class} {
+		@include alertBannerBase;
+
+		&--closed {
+			@include alertBannerClosed;
+		}
+		&__outer {
+			@include alertBannerOuter;
+		}
+
+		&__inner {
+			@include alertBannerInner;
+		}
+
+		&__content {
+			@include alertBannerContent;
+		}
+		&__content--long {
+			@include alertBannerContentLong;
+		}
+
+		&__content--short {
+			@include alertBannerContentShort;
+		}
+
+		&__actions {
+			@include alertBannerActions;
+		}
+
+		&__action {
+			@include alertBannerAction;
+		}
+
+		&__action--secondary {
+			@include alertBannerActionSecondary;
+		}
+
+		&__button {
+			@include alertBannerButton;
+		}
+
+		&__link {
+			@include alertBannerLink;
+		}
+
+		&__close {
+			@include alertBannerCloseButton;
+		}
+
+	}

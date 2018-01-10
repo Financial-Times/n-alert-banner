@@ -1,0 +1,125 @@
+@mixin alertBannerBase {
+	position: fixed;
+	left: 0;
+	display: block;
+	width: 100%;
+}
+
+@mixin alertBannerClosed {
+	display: none;
+}
+
+@mixin alertBannerOuter {
+	height: 48px;
+	width: 100%;
+}
+
+@mixin alertBannerInner {
+	height: 50px;
+	font-family: Metric;
+	font-size: 16px;
+	line-height: 20px;
+	white-space: nowrap;
+
+	@include oTypographySans($scale: 2);
+	// sass-lint:disable no-vendor-prefixes
+	-webkit-font-smoothing: antialiased;
+	// sass-lint:enable no-vendor-prefixes
+	position: relative;
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+@mixin alertBannerContent {
+	padding: 0 $_alert-banner-spacing;
+	p {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	b,
+	strong {
+		@include oTypographyBold($font: 'sans');
+	}
+}
+
+@mixin alertBannerContentLong {
+	margin: 5px;
+	@include oGridRespondTo($until: M) {
+		display: none;
+	}
+	&::before,
+	&::after {
+		content: '';
+		left: 4px;
+		top: 4px;
+		position: absolute;
+		align-items: center;
+	}
+}
+
+@mixin alertBannerContentShort {
+	@include oGridRespondTo($until: M) {
+		@include oTypographySans($scale: -1);
+	}
+	@include oGridRespondTo($from: M) {
+		display: none;
+	}
+	&::before,
+	&::after {
+		content: '';
+		left: 4px;
+		top: 4px;
+		position: absolute;
+		align-items: center;
+	}
+}
+
+@mixin alertBannerActions {
+	display: flex;
+	align-items: center;
+}
+
+@mixin alertBannerAction {
+	padding-right: $_alert-banner-spacing;
+}
+
+@mixin alertBannerActionSecondary {
+	text-align: right;
+
+	@include oGridRespondTo($until: S) {
+		display: none;
+	}
+}
+
+@mixin alertBannerButton {
+	@include oGridRespondTo($until: M) {
+		@include oTypographySans($scale: -1);
+	}
+	@include oButtons();
+	white-space: nowrap;
+	height: 28px;
+}
+
+@mixin alertBannerLink {
+	@include oGridRespondTo($until: M) {
+		margin-right: 60px;
+		@include oTypographySans($scale: -1);
+	}
+	@include oTypographySans($scale: 0);
+	margin-right: 500;
+	height: 28px;
+	white-space: nowrap;
+}
+
+@mixin alertBannerCloseButton {
+	$close-button-position: round(($_alert-banner-spacing - $_alert-banner-close-button-size));
+	display: block;
+	position: absolute;
+	right: $close-button-position;
+	top: $close-button-position;
+
+	// Note: this is to combat the default link styles often
+	// provided by o-typography
+	border: 0;
+}

@@ -1,0 +1,28 @@
+$alertBannerType: 'error';
+
+.#{$class} {
+
+	&__outer--#{$alertBannerType} {
+		@include alertBannerOuterError;
+	}
+
+	&__inner--#{$alertBannerType} {
+		@include alertBannerInnerError;
+	}
+
+	&__content--#{$alertBannerType} {
+		@include alertBannerContentError;
+	}
+
+	&__button--#{$alertBannerType} {
+		@include alertBannerButtonError;
+	}
+
+	&__link--#{$alertBannerType} {
+		@include alertBannerLinkError;
+	}
+
+	&__close--#{$alertBannerType} {
+		@include alertBannerCloseButtonError;
+	}
+}

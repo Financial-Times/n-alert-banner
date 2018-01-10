@@ -1,0 +1,12 @@
+//General Styles
+@include oColorsSetUseCase(alert-banner-warning-icon, text, 'white');
+@include oColorsSetUseCase(alert-banner-link, background, 'transparent');
+
+// Neutral Styles
+@include oColorsSetUseCase(alert-banner-background, background-neutral, 'white');
+@include oColorsSetUseCase(alert-banner-text, text-neutral, 'black');
+@include oColorsSetUseCase(alert-banner-button, background-neutral, 'white');
+@include oColorsSetUseCase(alert-banner-button, text-neutral, 'black');
+@include oColorsSetUseCase(alert-banner-link, text-neutral, 'black');
+@include oColorsSetUseCase(alert-banner-close, text-neutral, 'black');
+@include oColorsSetUseCase(alert-banner-warning-icon, background-neutral, 'black');

@@ -1,0 +1,30 @@
+@mixin alertBannerOuterError {
+	background-color: oColorsMix('paper', 'crimson', 90);
+}
+
+@mixin alertBannerInnerError {
+	color: oColorsMix('black', 'crimson', 12.5);
+}
+
+@mixin alertBannerContentError {
+	&::before {
+		@include oIconsGetIcon('warning', oColorsGetColorFor(alert-banner-warning-icon, text), 20);
+		padding: 1px;
+		background-color: oColorsMix('black', 'crimson', 12.5);
+		border-radius: 50%;
+		margin: 10px;
+	}
+}
+
+@mixin alertBannerButtonError {
+	color: oColorsMix('black', 'crimson', 12.5);
+	border: 1px solid oColorsMix('black', 'crimson', 12.5);
+}
+
+@mixin alertBannerLinkError {
+	color: oColorsMix('black', 'crimson', 12.5)
+}
+
+@mixin alertBannerCloseButtonError {
+	@include oIconsGetIcon('cross', oColorsMix('black', 'crimson', 12.5), $_alert-banner-close-button-size);
+}
