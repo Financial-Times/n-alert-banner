@@ -1,5 +1,3 @@
-$class: 'n-alert-banner';
-
 @import 'o-buttons/main';
 @import 'o-colors/main';
 @import 'o-grid/main';
@@ -9,12 +7,22 @@ $class: 'n-alert-banner';
 
 @import "src/scss/color-use-cases";
 @import "src/scss/variables";
-@import "src/scss/alert-banner/alert-mixins";
-@import "src/scss/alert-banner/alert";
+@import "src/scss/alert-banner/theme-mixins";
+@import "src/scss/alert-banner/alert-banner-mixins";
+@import "src/scss/alert-banner/alert-banner";
 
-@import "src/scss/alert-banner/alert-types/error/error-mixins";
-@import "src/scss/alert-banner/alert-types/error/error";
-@import "src/scss/alert-banner/alert-types/neutral/neutral-mixins";
-@import "src/scss/alert-banner/alert-types/neutral/neutral";
-@import "src/scss/alert-banner/alert-types/success/success-mixins";
-@import "src/scss/alert-banner/alert-types/success/success";
+@import "src/scss/alert-banner/themes/error/error-mixins";
+@import "src/scss/alert-banner/themes/error/error";
+@import "src/scss/alert-banner/themes/neutral/neutral-mixins";
+@import "src/scss/alert-banner/themes/neutral/neutral";
+@import "src/scss/alert-banner/themes/success/success-mixins";
+@import "src/scss/alert-banner/themes/success/success";
+
+@if ($n-alert-banner-is-silent == false) {
+
+	// @include nAlertBanner($class: 'n-alert-banner', $themes: 'success' );
+	@include nAlertBanner;
+
+	// Set to silent again to avoid being output twice
+	$n-alert-banner-is-silent: true !global;
+}

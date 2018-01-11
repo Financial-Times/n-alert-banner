@@ -20,7 +20,7 @@ export default {
 			}
 
 			// Build a concise key and get the option value
-			const shortKey = key.replace(/^alert(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
+			const shortKey = key.replace(/^nAlertBanner(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
 			const value = alertBannerElement.dataset[key];
 
 			// Try parsing the value as JSON, otherwise just set it as a string

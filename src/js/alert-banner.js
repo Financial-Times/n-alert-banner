@@ -16,30 +16,23 @@ class AlertBanner {
 
 		// Default the options
 		const alertBannerClass = options && options.alertBannerClass ? options.alertBannerClass : 'n-alert-banner';
-		const alertBannerType = options && options.alertBannerType ? options.alertBannerType : 'neutral';
+
 		this.options = Object.assign({}, {
 			autoOpen: true,
-
 
 			alertBannerClass: alertBannerClass,
 			alertBannerClosedClass: `${alertBannerClass}--closed`,
 			outerClass: `${alertBannerClass}__outer`,
-			outerClassAlertType: `${alertBannerClass}__outer--${alertBannerType}`,
 			innerClass: `${alertBannerClass}__inner`,
-			innerClassAlertType: `${alertBannerClass}__inner--${alertBannerType}`,
 			contentClass: `${alertBannerClass}__content`,
-			contentClassType: `${alertBannerClass}__content--${alertBannerType}`,
 			contentLongClass: `${alertBannerClass}__content--long`,
 			contentShortClass: `${alertBannerClass}__content--short`,
 			actionsClass: `${alertBannerClass}__actions`,
 			actionClass: `${alertBannerClass}__action`,
 			actionSecondaryClass: `${alertBannerClass}__action--secondary`,
 			buttonClass: `${alertBannerClass}__button`,
-			buttonClassAlertType: `${alertBannerClass}__button--${alertBannerType}`,
 			linkClass: `${alertBannerClass}__link`,
-			linkClassAlertType: `${alertBannerClass}__link--${alertBannerType}`,
 			closeButtonClass: `${alertBannerClass}__close`,
-			closeButtonClassAlertType: `${alertBannerClass}__close--${alertBannerType}`,
 
 			contentLong1: '&hellip;',
 			contentLong2: '&hellip;',
@@ -48,7 +41,9 @@ class AlertBanner {
 			buttonUrl: '#',
 			linkLabel: null,
 			linkUrl: '#',
-			closeButtonLabel: 'Close'
+			closeButtonLabel: 'Close',
+
+			theme: null
 
 		}, options || getOptions.fromDom(alertBannerElement));
 

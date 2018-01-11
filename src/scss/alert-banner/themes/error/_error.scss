@@ -1,0 +1,29 @@
+@mixin nAlertBannerErrorMixins($class: 'n-alert-banner') {
+
+	.#{$class}--error {
+
+		.#{$class}__outer {
+			@include alertBannerOuterError;
+		}
+
+		.#{$class}__inner {
+			@include alertBannerInnerError;
+		}
+
+		.#{$class}__content {
+			@include alertBannerContentError;
+		}
+
+		.#{$class}__button {
+			@include alertBannerButtonError;
+		}
+
+		.#{$class}__link {
+			@include alertBannerLinkError;
+		}
+
+		.#{$class}__close {
+			@include alertBannerCloseButtonError;
+		}
+	}
+}

@@ -1,0 +1,14 @@
+@mixin _nAlertBannerThemeMixins($theme, $class) {
+
+	@if $theme == 'error' {
+		@include nAlertBannerErrorMixins($class);
+	}
+
+	@else if $theme == 'success' {
+		@include nAlertBannerSuccessMixins($class);
+	}
+
+	@else if $theme == 'neutral' {
+		@include nAlertBannerNeutralMixins($class);
+	}
+}

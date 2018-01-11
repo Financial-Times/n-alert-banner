@@ -1,0 +1,29 @@
+@mixin nAlertBannerSuccessMixins($class: 'n-alert-banner') {
+
+	.#{$class}--success {
+
+		.#{$class}__outer {
+			@include alertBannerOuterSuccess;
+		}
+
+		.#{$class}__inner {
+			@include alertBannerInnerSuccess;
+		}
+
+		.#{$class}__content {
+			@include alertBannerContentSuccess;
+		}
+
+		.#{$class}__button {
+			@include alertBannerButtonSuccess;
+		}
+
+		.#{$class}__link {
+			@include alertBannerLinkSuccess;
+		}
+
+		.#{$class}__close {
+			@include alertBannerCloseButtonSuccess;
+		}
+	}
+}

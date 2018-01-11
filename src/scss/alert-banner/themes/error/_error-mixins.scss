@@ -26,5 +26,5 @@
 }
 
 @mixin alertBannerCloseButtonError {
-	@include oIconsGetIcon('cross', oColorsMix('black', 'crimson', 12.5), $_alert-banner-close-button-size);
+	@include oIconsGetIcon('cross', oColorsMix('black', 'crimson', 12.5), $_n-alert-banner-close-button-size);
 }

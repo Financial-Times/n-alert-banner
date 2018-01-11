@@ -8,6 +8,17 @@ export default {
 	alertBanner: (options) => {
 		const alertBannerElement = document.createElement('div');
 		alertBannerElement.classList.add(options.alertBannerClass);
+
+		let themes = [];
+
+		if (options.theme) {
+			themes = (Array.isArray(options.theme) ? options.theme : [options.theme]);
+		}
+
+		themes.forEach(theme => {
+			alertBannerElement.classList.add(`${options.alertBannerClass}--${theme}`);
+		})
+
 		alertBannerElement.setAttribute('data-n-component', 'n-alert-banner');
 
 		let contentHtml;
@@ -17,16 +28,16 @@ export default {
 
 		if (options.contentShort) {
 			contentHtml = `
-				<div class="${options.contentClass} ${options.contentLongClass} ${options.contentClassType}">
+				<div class="${options.contentClass} ${options.contentLongClass}">
 					<p><b>${options.contentLong1}</b> ${options.contentLong2}</p>
 				</div>
-				<div class="${options.contentClass} ${options.contentShortClass} ${options.contentClassType}">
+				<div class="${options.contentClass} ${options.contentShortClass}">
 					<p>${options.contentShort}</p>
 				</div>
 			`;
 		} else {
 			contentHtml = `
-				<div class="${options.contentClass} ${options.contentLongClass} ${options.contentClassType}">
+				<div class="${options.contentClass} ${options.contentLongClass}">
 					<p><b>${options.contentLong1}</b> ${options.contentLong2}</p>
 				</div>
 			`;
@@ -35,7 +46,7 @@ export default {
 		if (options.linkLabel) {
 			secondaryActionHtml = `
 				<div class="${options.actionClass} ${options.actionSecondaryClass}">
-					<a href="${options.linkUrl}" class="${options.linkClass} ${options.linkClassAlertType}">${options.linkLabel}</a>
+					<a href="${options.linkUrl}" class="${options.linkClass}">${options.linkLabel}</a>
 				</div>
 			`;
 		}
@@ -43,7 +54,7 @@ export default {
 		if (options.buttonLabel) {
 			buttonHTML = `
 				<div class="${options.actionClass}">
-					<a href="${options.buttonUrl}" class="${options.buttonClass} ${options.buttonClassAlertType}">${options.buttonLabel}</a>
+					<a href="${options.buttonUrl}" class="${options.buttonClass}">${options.buttonLabel}</a>
 				</div>
 			`;
 		}
@@ -58,8 +69,8 @@ export default {
 		}
 
 		alertBannerElement.innerHTML = `
-		<div class="${options.outerClass} ${options.outerClassAlertType}">
-			<div class="${options.innerClass} ${options.innerClassAlertType}" data-n-alert-banner-inner="">
+		<div class="${options.outerClass}">
+			<div class="${options.innerClass}" data-n-alert-banner-inner="">
 				${contentHtml}
 				${actionHTML}
 			</div>
@@ -70,9 +81,6 @@ export default {
 	},
 
  closeButton: (alertBannerElement) => {
-	 console.log('================')
-	 console.log("alertBannerElement", alertBannerElement);
-	 console.log('================')
 
 		const options = alertBannerElement.options
 		const closeButton = document.createElement('a');

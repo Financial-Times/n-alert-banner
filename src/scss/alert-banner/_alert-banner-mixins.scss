@@ -32,7 +32,7 @@
 }
 
 @mixin alertBannerContent {
-	padding: 0 $_alert-banner-spacing;
+	padding: 0 $_n-alert-banner-spacing;
 	p {
 		margin-top: 0;
 		margin-bottom: 0;
@@ -81,7 +81,7 @@
 }
 
 @mixin alertBannerAction {
-	padding-right: $_alert-banner-spacing;
+	padding-right: $_n-alert-banner-spacing;
 }
 
 @mixin alertBannerActionSecondary {
@@ -113,7 +113,7 @@
 }
 
 @mixin alertBannerCloseButton {
-	$close-button-position: round(($_alert-banner-spacing - $_alert-banner-close-button-size));
+	$close-button-position: round(($_n-alert-banner-spacing - $_n-alert-banner-close-button-size));
 	display: block;
 	position: absolute;
 	right: $close-button-position;

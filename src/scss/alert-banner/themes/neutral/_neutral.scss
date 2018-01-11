@@ -1,0 +1,29 @@
+@mixin nAlertBannerNeutralMixins($class) {
+
+	.#{$class}--neutral {
+
+		.#{$class}__outer {
+			@include alertBannerOuterNeutral;
+		}
+
+		.#{$class}__inner {
+			@include alertBannerInnerNeutral;
+		}
+
+		.#{$class}__content {
+			@include alertBannerContentNeutral;
+		}
+
+		.#{$class}__button {
+			@include alertBannerButtonNeutral;
+		}
+
+		.#{$class}__link {
+			@include alertBannerLinkNeutral;
+		}
+
+		.#{$class}__close {
+			@include alertBannerCloseButtonNeutral;
+		}
+	}
+}
