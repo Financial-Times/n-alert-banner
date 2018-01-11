@@ -84,7 +84,7 @@ export default {
 
 		const options = alertBannerElement.options
 		const closeButton = document.createElement('a');
-		closeButton.classList.add(options.closeButtonClass, options.closeButtonClassAlertType);
+		closeButton.classList.add(options.closeButtonClass);
 		closeButton.setAttribute('role', 'button');
 		closeButton.setAttribute('href', '#void');
 		closeButton.setAttribute('aria-label', options.closeButtonLabel);
