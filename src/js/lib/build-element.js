@@ -8,16 +8,7 @@ export default {
 	alertBanner: (options) => {
 		const alertBannerElement = document.createElement('div');
 		alertBannerElement.classList.add(options.alertBannerClass);
-
-		let themes = [];
-
-		if (options.theme) {
-			themes = (Array.isArray(options.theme) ? options.theme : [options.theme]);
-		}
-
-		themes.forEach(theme => {
-			alertBannerElement.classList.add(`${options.alertBannerClass}--${theme}`);
-		})
+		alertBannerElement.classList.add(`${options.alertBannerClass}--${options.theme}`);
 
 		alertBannerElement.setAttribute('data-n-component', 'n-alert-banner');
 
