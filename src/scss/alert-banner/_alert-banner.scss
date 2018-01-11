@@ -61,7 +61,7 @@
 					@if index($_n-alert-banner-themes, $theme) != null {
 						@include _nAlertBannerThemeMixins($theme, $class);
 					} @else {
-						@error "There is no theme '#{$theme}' available in o-banner, please use one of the following: #{$_o-banner-themes}.";
+						@error "There is no theme '#{$theme}' available in n-alert-banner, please use one of the following: #{$_n-alert-banner-themes}.";
 					}
 			}
 	}
