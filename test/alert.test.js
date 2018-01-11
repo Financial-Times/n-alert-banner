@@ -68,22 +68,16 @@ describe('AlertBanner', () => {
 				alertBannerClass: 'n-alert-banner',
 				alertBannerClosedClass: 'n-alert-banner--closed',
 				outerClass: 'n-alert-banner__outer',
-				outerClassAlertType: `n-alert-banner__outer--neutral`,
 				innerClass: 'n-alert-banner__inner',
-				innerClassAlertType: `n-alert-banner__inner--neutral`,
 				contentClass: 'n-alert-banner__content',
-				contentClassType: `n-alert-banner__content--neutral`,
 				contentLongClass: 'n-alert-banner__content--long',
 				contentShortClass: 'n-alert-banner__content--short',
 				actionsClass: 'n-alert-banner__actions',
 				actionClass: 'n-alert-banner__action',
 				actionSecondaryClass: 'n-alert-banner__action--secondary',
 				buttonClass: 'n-alert-banner__button',
-				buttonClassAlertType: `n-alert-banner__button--neutral`,
 				linkClass: 'n-alert-banner__link',
-				linkClassAlertType: `n-alert-banner__link--neutral`,
 				closeButtonClass: 'n-alert-banner__close',
-				closeButtonClassAlertType: `n-alert-banner__close--neutral`,
 				contentLong1: '&hellip;',
 				contentLong2: '&hellip;',
 				contentShort: null,
@@ -92,6 +86,7 @@ describe('AlertBanner', () => {
 				linkLabel: null,
 				linkUrl: '#',
 				closeButtonLabel: 'Close',
+				theme: null
 			});
 		});
 
@@ -345,27 +340,23 @@ describe('AlertBanner', () => {
 					alertBannerClass: 'mockAlertClass',
 					alertBannerClosedClass: 'mockAlertClosedClass',
 					outerClass: 'mockOuterClass',
-					outerClassAlertType: `mockOuterClassTypeError`,
 					innerClass: 'mockInnerClass',
-					innerClassAlertType: `mockInnerClassTypeError`,
 					contentClass: 'mockContentClass',
-					contentClassType: `mockContentClassTypeError`,
 					contentLongClass: 'mockContentLongClass',
 					contentShortClass: 'mockContentShortClass',
 					actionsClass: 'mockActionsClass',
 					actionClass: 'mockActionClass',
 					actionSecondaryClass: 'mockActionSecondaryClass',
 					buttonClass: 'mockButtonClass',
-					buttonClassAlertType: `mockButtonClassTypeError`,
 					linkClass: 'mockLinkClass',
-					linkClassAlertType: `mockLinkClassTypeError`,
 					contentLong1: 'mockContentLong1',
 					contentLong2: 'mockContentLong2',
 					contentShort: 'mockContentShort',
 					buttonLabel: 'mockButtonLabel',
 					buttonUrl: 'mockButtonUrl',
 					linkLabel: 'mockLinkLabel',
-					linkUrl: 'mockLinkUrl'
+					linkUrl: 'mockLinkUrl',
+					theme: 'mock-theme'
 				}
 
 				returnValue = buildElement.alertBanner(options);
@@ -377,21 +368,21 @@ describe('AlertBanner', () => {
 
 			it('constructs the element HTML based on the given options', () => {
 				assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-					<div class="mockAlertClass" data-n-component="n-alert-banner">
-						<div class="mockOuterClass mockOuterClassTypeError">
-							<div class="mockInnerClass mockInnerClassTypeError" data-n-alert-banner-inner="">
-								<div class="mockContentClass mockContentLongClass mockContentClassTypeError">
+					<div class="mockAlertClass mockAlertClass--mock-theme" data-n-component="n-alert-banner">
+						<div class="mockOuterClass">
+							<div class="mockInnerClass" data-n-alert-banner-inner="">
+								<div class="mockContentClass mockContentLongClass">
 									<p><b>mockContentLong1</b> mockContentLong2</p>
 								</div>
-								<div class="mockContentClass mockContentShortClass mockContentClassTypeError">
+								<div class="mockContentClass mockContentShortClass">
 									<p>mockContentShort</p>
 								</div>
 								<div class="mockActionsClass">
 									<div class="mockActionClass">
-										<a href="mockButtonUrl" class="mockButtonClass mockButtonClassTypeError">mockButtonLabel</a>
+										<a href="mockButtonUrl" class="mockButtonClass">mockButtonLabel</a>
 									</div>
 									<div class="mockActionClass mockActionSecondaryClass">
-										<a href="mockLinkUrl" class="mockLinkClass mockLinkClassTypeError">mockLinkLabel</a>
+										<a href="mockLinkUrl" class="mockLinkClass">mockLinkLabel</a>
 									</div>
 								</div>
 							</div>
@@ -409,18 +400,18 @@ describe('AlertBanner', () => {
 
 				it('outputs only one content element using `options.contentLong`', () => {
 					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-					<div class="mockAlertClass" data-n-component="n-alert-banner">
-						<div class="mockOuterClass mockOuterClassTypeError">
-							<div class="mockInnerClass mockInnerClassTypeError" data-n-alert-banner-inner="">
-								<div class="mockContentClass mockContentLongClass mockContentClassTypeError">
+					<div class="mockAlertClass mockAlertClass--mock-theme" data-n-component="n-alert-banner">
+						<div class="mockOuterClass">
+							<div class="mockInnerClass" data-n-alert-banner-inner="">
+								<div class="mockContentClass mockContentLongClass">
 									<p><b>mockContentLong1</b> mockContentLong2</p>
 								</div>
 								<div class="mockActionsClass">
 									<div class="mockActionClass">
-										<a href="mockButtonUrl" class="mockButtonClass mockButtonClassTypeError">mockButtonLabel</a>
+										<a href="mockButtonUrl" class="mockButtonClass">mockButtonLabel</a>
 									</div>
 									<div class="mockActionClass mockActionSecondaryClass">
-										<a href="mockLinkUrl" class="mockLinkClass mockLinkClassTypeError">mockLinkLabel</a>
+										<a href="mockLinkUrl" class="mockLinkClass">mockLinkLabel</a>
 									</div>
 								</div>
 							</div>
@@ -440,18 +431,51 @@ describe('AlertBanner', () => {
 
 				it('does not include a secondary action/link', () => {
 					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-					<div class="mockAlertClass" data-n-component="n-alert-banner">
-						<div class="mockOuterClass mockOuterClassTypeError">
-							<div class="mockInnerClass mockInnerClassTypeError" data-n-alert-banner-inner="">
-								<div class="mockContentClass mockContentLongClass mockContentClassTypeError">
+					<div class="mockAlertClass mockAlertClass--mock-theme" data-n-component="n-alert-banner">
+						<div class="mockOuterClass">
+							<div class="mockInnerClass" data-n-alert-banner-inner="">
+								<div class="mockContentClass mockContentLongClass">
 									<p><b>mockContentLong1</b> mockContentLong2</p>
 								</div>
-								<div class="mockContentClass mockContentShortClass mockContentClassTypeError">
+								<div class="mockContentClass mockContentShortClass">
 									<p>mockContentShort</p>
 								</div>
 								<div class="mockActionsClass">
 									<div class="mockActionClass">
-										<a href="mockButtonUrl" class="mockButtonClass mockButtonClassTypeError">mockButtonLabel</a>
+										<a href="mockButtonUrl" class="mockButtonClass">mockButtonLabel</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					`.replace(/[\t\n]+/g, ''));
+				});
+
+			});
+
+			describe('when `options.theme` is defined and is a string', () => {
+
+				beforeEach(() => {
+					returnValue = buildElement.alertBanner(options);
+				});
+
+				it('adds the theme class to the alert banner element', () => {
+					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
+					<div class="mockAlertClass mockAlertClass--mock-theme" data-n-component="n-alert-banner">
+						<div class="mockOuterClass">
+							<div class="mockInnerClass" data-n-alert-banner-inner="">
+								<div class="mockContentClass mockContentLongClass">
+									<p><b>mockContentLong1</b> mockContentLong2</p>
+								</div>
+								<div class="mockContentClass mockContentShortClass">
+									<p>mockContentShort</p>
+								</div>
+								<div class="mockActionsClass">
+									<div class="mockActionClass">
+										<a href="mockButtonUrl" class="mockButtonClass">mockButtonLabel</a>
+									</div>
+									<div class="mockActionClass mockActionSecondaryClass">
+										<a href="mockLinkUrl" class="mockLinkClass">mockLinkLabel</a>
 									</div>
 								</div>
 							</div>
@@ -476,7 +500,6 @@ describe('AlertBanner', () => {
 				// Mock options used to test output HTML
 				alertBanner.options.closeButtonClass = 'mockCloseButtonClass';
 				alertBanner.options.closeButtonLabel = 'mockCloseButtonLabel';
-				alertBanner.options.closeButtonClassAlertType = 'mockCloseButtonTypeError'
 
 				sinon.stub(HTMLElement.prototype, 'addEventListener');
 
@@ -493,7 +516,7 @@ describe('AlertBanner', () => {
 
 			it('constructs the element HTML based on the given options', () => {
 				assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-					<a class="mockCloseButtonClass mockCloseButtonTypeError" role="button" href="#void" aria-label="mockCloseButtonLabel" title="mockCloseButtonLabel"></a>
+					<a class="mockCloseButtonClass" role="button" href="#void" aria-label="mockCloseButtonLabel" title="mockCloseButtonLabel"></a>
 				`.replace(/[\t\n]+/g, ''));
 			});
 
@@ -538,9 +561,9 @@ describe('AlertBanner', () => {
 			mockAlertElement.setAttribute('data-n-component', 'n-alert-banner');
 			mockAlertElement.setAttribute('data-key', 'value');
 			mockAlertElement.setAttribute('data-another-key', 'value');
-			mockAlertElement.setAttribute('data-alert-foo', 'bar');
-			mockAlertElement.setAttribute('data-alert-json', '{"foo": "bar"}');
-			mockAlertElement.setAttribute('data-alert-json-single', '{\'foo\': \'bar\'}');
+			mockAlertElement.setAttribute('data-n-alert-banner-foo', 'bar');
+			mockAlertElement.setAttribute('data-n-alert-banner-json', '{"foo": "bar"}');
+			mockAlertElement.setAttribute('data-n-alert-banner-json-single', '{\'foo\': \'bar\'}');
 			returnValue = getOptions.fromDom(mockAlertElement);
 		});
 

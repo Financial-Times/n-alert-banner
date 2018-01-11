@@ -30,5 +30,5 @@
 }
 
 @mixin alertBannerCloseButtonNeutral {
-	@include oIconsGetIcon('cross', oColorsGetColorFor(alert-banner-close, text-neutral), $_alert-banner-close-button-size);
+	@include oIconsGetIcon('cross', oColorsGetColorFor(alert-banner-close, text-neutral), $_n-alert-banner-close-button-size);
 }

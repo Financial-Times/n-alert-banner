@@ -25,5 +25,5 @@
 }
 
 @mixin alertBannerCloseButtonSuccess {
-	@include oIconsGetIcon('cross', oColorsMix('black', 'jade', 43), $_alert-banner-close-button-size);
+	@include oIconsGetIcon('cross', oColorsMix('black', 'jade', 43), $_n-alert-banner-close-button-size);
 }

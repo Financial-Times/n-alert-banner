@@ -1,3 +1,4 @@
+@mixin nAlertBanner($class: 'n-alert-banner', $themes: 'all' ) {
 
 	// Base n-alert-banner styles
 	.#{$class} {
@@ -50,3 +51,19 @@
 		}
 
 	}
+
+	@if $themes == 'all' {
+		@each $theme in $_n-alert-banner-themes {
+			@include _nAlertBannerThemeMixins($theme, $class);
+		}
+	} @else if $themes != false {
+			@each $theme in $themes {
+					@if index($_n-alert-banner-themes, $theme) != null {
+						@include _nAlertBannerThemeMixins($theme, $class);
+					} @else {
+						@error "There is no theme '#{$theme}' available in n-alert-banner, please use one of the following: #{$_n-alert-banner-themes}.";
+					}
+			}
+	}
+
+}
