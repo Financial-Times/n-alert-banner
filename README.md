@@ -1,7 +1,7 @@
 
 # n-alert-banner [![Circle CI](https://circleci.com/gh/Financial-Times/n-alert-banner/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/n-alert-banner/tree/master)
 
-o-banner is a component used for product messaging which could include feature promotion, education, feedback, and legal information.
+n-alert-banner is a component used for product messaging which could include feature promotion, education, feedback, and legal information.
 
 - [Usage](#usage)
   - [Behaviour](#behaviour)
@@ -129,12 +129,9 @@ The `$themes` parameter can be either `all` or specific [theme](#themes):
 
 n-alert-banner has the following built-in themes:
 
-  - `error`: Displays an error alert (failure) banner,
-
-	<img src="doc/error-banner.png"> 
-
-  - `neutral`: Displays an neutral alert banner,
-	- `success`: Displays an success alert banner
+  - `error`: Displays an error alert (failure) banner (crimson colour scheme),
+  - `neutral`: Displays an neutral alert banner (white and black colour scheme),
+  - `success`: Displays an success alert banner (jade colour scheme)
 
 In the markup, these can be applied as classes alongside the `n-alert-banner class`. They are exposed as modifiers:
 
