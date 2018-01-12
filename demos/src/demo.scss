@@ -11,7 +11,7 @@ body {
 	padding: 20px 0 0 20px;
 }
 .demo-button {
-	@include oButtons($size: big);
+	@include oButtons();
 }
 
 .n-alert-banner--static {

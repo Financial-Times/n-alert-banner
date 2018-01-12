@@ -1,14 +1,17 @@
+$errorBackgroundColor: oColorsMix('paper', 'crimson', 90);
+$errorTextColor: oColorsMix('black', 'crimson', 12.5);
+
 @mixin alertBannerOuterError {
-	background-color: oColorsMix('paper', 'crimson', 90);
+	background-color: $errorBackgroundColor;
 }
 
 @mixin alertBannerInnerError {
-	color: oColorsMix('black', 'crimson', 12.5);
+	color: $errorTextColor;
 }
 
 @mixin alertBannerContentError {
 	&::before {
-		@include oIconsGetIcon('warning', oColorsGetColorFor(alert-banner-warning-icon, text), 20);
+		@include oIconsGetIcon('warning', $errorBackgroundColor, 20);
 		padding: 1px;
 		background-color: oColorsMix('black', 'crimson', 12.5);
 		border-radius: 50%;
@@ -17,14 +20,14 @@
 }
 
 @mixin alertBannerButtonError {
-	color: oColorsMix('black', 'crimson', 12.5);
-	border: 1px solid oColorsMix('black', 'crimson', 12.5);
+	border: 1px solid ;
+	color: $errorTextColor;
 }
 
 @mixin alertBannerLinkError {
-	color: oColorsMix('black', 'crimson', 12.5)
+	color: $errorTextColor;
 }
 
 @mixin alertBannerCloseButtonError {
-	@include oIconsGetIcon('cross', oColorsMix('black', 'crimson', 12.5), $_n-alert-banner-close-button-size);
+	@include oIconsGetIcon('cross', $errorTextColor, $_n-alert-banner-close-button-size);
 }

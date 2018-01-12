@@ -16,12 +16,9 @@
 
 @mixin alertBannerInner {
 	height: 50px;
-	font-family: Metric;
-	font-size: 16px;
-	line-height: 20px;
 	white-space: nowrap;
 
-	@include oTypographySans($scale: 2);
+	@include oTypographySans($scale: 0);
 	// sass-lint:disable no-vendor-prefixes
 	-webkit-font-smoothing: antialiased;
 	// sass-lint:enable no-vendor-prefixes
@@ -32,7 +29,7 @@
 }
 
 @mixin alertBannerContent {
-	padding: 0 $_n-alert-banner-spacing;
+	padding: 0 24px 0 $_n-alert-banner-spacing;
 	p {
 		margin-top: 0;
 		margin-bottom: 0;
@@ -44,7 +41,7 @@
 }
 
 @mixin alertBannerContentLong {
-	margin: 5px;
+	margin: 8px;
 	@include oGridRespondTo($until: M) {
 		display: none;
 	}
@@ -107,7 +104,6 @@
 		@include oTypographySans($scale: -1);
 	}
 	@include oTypographySans($scale: 0);
-	margin-right: 500;
 	height: 28px;
 	white-space: nowrap;
 }

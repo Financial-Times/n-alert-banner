@@ -1,14 +1,17 @@
+$successBackgroundColor: oColorsMix('paper', 'jade', 80);
+$successTextColor: oColorsMix('black', 'jade', 43);
+
 @mixin alertBannerOuterSuccess {
-	background-color: oColorsMix('paper', 'jade', 80);
+	background-color: $successBackgroundColor;
 }
 
 @mixin alertBannerInnerSuccess {
-	color: oColorsMix('black', 'jade', 43);
+	color: $successTextColor;
 }
 
 @mixin alertBannerContentSuccess {
 	&::before {
-		@include oIconsGetIcon('tick', oColorsMix('black', 'jade', 43), 20);
+		@include oIconsGetIcon('tick', $successTextColor, 20);
 		align-items: center;
 		padding: 10px;
 		white-space: nowrap;
@@ -16,14 +19,14 @@
 }
 
 @mixin alertBannerButtonSuccess {
-	border: 1px solid oColorsMix('black', 'jade', 43);
-	color: oColorsMix('black', 'jade', 43);
+	border: solid 1px $successTextColor;
+	color: $successTextColor;
 }
 
 @mixin alertBannerLinkSuccess {
-	color: oColorsMix('black', 'jade', 43);
+	color: $successTextColor;
 }
 
 @mixin alertBannerCloseButtonSuccess {
-	@include oIconsGetIcon('cross', oColorsMix('black', 'jade', 43), $_n-alert-banner-close-button-size);
+	@include oIconsGetIcon('cross', $successTextColor, $_n-alert-banner-close-button-size);
 }
