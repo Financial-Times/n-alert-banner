@@ -61,7 +61,7 @@ No code will run automatically unless you are using the Build Service. You must 
 
 #### Constructing an n-alert-banner
 
-If you have set up your banner declaratively:
+If you have set up your alert banner declaratively:
 
 ```js
 const nAlertBanner = require('n-alert-banner');
@@ -71,7 +71,7 @@ const myAlertBanner = new nAlertBanner(alertBannerElement);
 
 The second argument passed to `nAlertBanner` is an [options object](#options), this can be used to change the behaviour and display of a banner.
 
-If you wish to create a banner from scratch with no existing DOM elements, you can set up your banner like this:
+If you wish to create an alert banner from scratch with no existing DOM elements, you can set up your banner like this:
 
 ```js
 const AlertBanner = require('n-alert-banner');
@@ -100,7 +100,7 @@ Once you have an n-alert-banner instance, you can manipulate it using the follow
 
 There are several options used to change the appearance or behaviour of n-alert-banner. All of these are optional, but it's recommended to set at least `contentLong`, `buttonLabel`, and `buttonUrl` or `linkLabel` and `linkUrl`. Set the following as properties on the second argument to `new AlertBanner`:
 
-  - `autoOpen`: Boolean. Whether to automatically open the banner. Defaults to `true`
+  - `autoOpen`: Boolean. Whether to automatically open the alert banner. Defaults to `true`
   - `bannerClass`: String. The top-level banner class, which other classes will be based on. Defaults to `n-alert-banner`
   - `contentLong`: String. The content to display on larger screens, or all screens if `contentShort` is not specified. Defaults to `&hellip;`
   - `contentShort`: String. The content to display on smaller screens. Defaults to the value of `contentLong`
@@ -109,7 +109,7 @@ There are several options used to change the appearance or behaviour of n-alert-
   - `linkLabel`: String. The banner link label. Set to `null` to hide the link. Defaults to `null`
   - `linkUrl`: String. The URL the link links to. Defaults to `#`
   - `closeButtonLabel`: String. The hidden accessible label for the close button. Defaults to `Close`.
-  - `theme`: String. Themes to apply to the banner. [See the themes documentation](#themes) for available values. Defaults to `null`
+  - `theme`: String. Themes to apply to the alert banner. [See the themes documentation](#themes) for available values. Defaults to `null`
 
 ### Sass
 
@@ -121,7 +121,7 @@ o-tooltip includes mixins that you can use if you'd rather not have origami clas
 @include nAlertBanner($class: 'n-alert-banner', $themes: 'all');
 ```
 
-The `$themes` parameter can be either `all` or specific [theme](#themes):
+The `$themes` parameter can be either `all` or a specific [theme](#themes):
 
 ```scss
 @include nAlertBanner($themes: 'error');
