@@ -158,7 +158,7 @@ const myBanner = new oBanner({
 
 ## Contact
 
-If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/n-alert-banner/issues), visit [#ft-next-conversion](https://financialtimes/ft-next-conversion) or email [Origami Support](mailto:conversion.tech@ft.com).
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/n-alert-banner/issues), slack `#ft-next-conversion`, or email [ft-next-conversion](mailto:conversion.tech@ft.com).
 
 ---
 
