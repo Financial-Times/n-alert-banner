@@ -1,7 +1,7 @@
 
 # n-alert-banner [![Circle CI](https://circleci.com/gh/Financial-Times/n-alert-banner/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/n-alert-banner/tree/master)
 
-n-alert-banner is a component used for product messaging which could include feature promotion, education, feedback, and legal information.
+n-alert-banner is a component used for product messaging.
 
 - [Usage](#usage)
   - [Behaviour](#behaviour)
