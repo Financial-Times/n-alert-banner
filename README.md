@@ -132,8 +132,16 @@ The `$themes` parameter can be either `all` or a specific [theme](#themes):
 n-alert-banner has the following built-in themes:
 
   - `error`: Displays an error alert (failure) banner (crimson colour scheme),
+
+	![Error alert banner example](docs/error-alert-banner.png?raw=true "Error")
+
   - `neutral`: Displays an neutral alert banner (white and black colour scheme),
+
+	![Neutral alert banner example](docs/neutral-alert-banner.png?raw=true "Neutral")
+
   - `success`: Displays an success alert banner (jade colour scheme)
+
+	![Success alert banner example](docs/success-alert-banner.png?raw=true "Success")
 
 In the markup, these can be applied as classes alongside the `n-alert-banner class`. They are exposed as modifiers:
 
