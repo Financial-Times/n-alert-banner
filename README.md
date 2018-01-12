@@ -17,6 +17,10 @@ n-alert-banner is a component used for product messaging which could include fea
 
 n-alert-banner includes Sass and JavaScript to show and hide the alert banner. They can be created declaratively by adding markup to the page, or imperatively using JavaScript (only when not using the Build Service).
 
+### Behaviour
+
+n-alert-banner elements appears fixed to the top of the screen. You can dismiss a banner, which will hide it but not remove it from the DOM. By default the last banner to be created will be the one that automatically opens. Opening a new banner will close any that are currently open.
+
 ### Markup
 
 This HTML demonstrates the declarative way to instantiate n-alert-banner. If you are using the Build Service or firing your own `o.DOMContentLoaded` event, this is all you need to create a banner:
