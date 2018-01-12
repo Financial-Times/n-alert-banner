@@ -55,8 +55,6 @@ This HTML demonstrates the declarative way to instantiate n-alert-banner. If you
 </div>
 ```
 
-Variable content based on screen size as well as the link after the button are optional. A minimal alert banner would look like this (note removal of content modifiers):
-
 ### JavaScript
 
 No code will run automatically unless you are using the Build Service. You must either construct an n-alert-banner object or fire an `o.DOMContentLoaded` event, which n-alert-banner listens for.
