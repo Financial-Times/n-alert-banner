@@ -1,4 +1,12 @@
 {
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "@financial-times/n-gage": "^1.19.3",
+    "origami-build-tools": "^7.2.4"
+  },
+  "scripts": {
+    "precommit": "node_modules/.bin/secret-squirrel",
+    "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
+    "prepush": "make verify -j3"
+  }
 }
- 
