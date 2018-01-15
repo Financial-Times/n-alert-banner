@@ -1,11 +1,3 @@
-@mixin alertBannerOuterNeutral {
-	background-color: oColorsGetColorFor(alert-banner-background, background-neutral);
-}
-
-@mixin alertBannerInnerNeutral {
-	color: oColorsGetColorFor(alert-banner-text, text-neutral);
-}
-
 @mixin alertBannerContentNeutral {
 	&::before {
 		@include oIconsGetIcon('warning', oColorsGetColorFor(alert-banner-warning-icon, text), 20);
@@ -17,6 +9,7 @@
 }
 
 @mixin alertBannerButtonNeutral {
+		$neutralTextColor: oColorsGetPaletteColor('black');
 	@include oButtonsCustomTheme(oColorsGetUseCase(alert-banner-button, background-neutral), oColorsGetUseCase(alert-banner-button, text-neutral));
 }
 
@@ -25,10 +18,6 @@
 		$baseColor: oColorsGetUseCase(alert-banner-link, text-neutral),
 		$hoverColor: oColorsGetUseCase(alert-banner-link, text-neutral),
 		$outlineColor: oColorsGetUseCase(alert-banner-link, text-neutral),
-		$backgroundColor: oColorsGetUseCase(alert-banner-link, background)
+		$backgroundColor: oColorsGetUseCase(alert-banner-link, background-neutral)
 	);
-}
-
-@mixin alertBannerCloseButtonNeutral {
-	@include oIconsGetIcon('cross', oColorsGetColorFor(alert-banner-close, text-neutral), $_n-alert-banner-close-button-size);
 }
