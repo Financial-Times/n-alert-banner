@@ -21,7 +21,7 @@
 	color: $textColor;
 	text-decoration: none;
 	cursor: pointer;
-	border-bottom: 2px solid $textColor;
+	border-bottom: 2px solid lighten($textColor, 8);
 
 	&:hover,
 	&:focus {
