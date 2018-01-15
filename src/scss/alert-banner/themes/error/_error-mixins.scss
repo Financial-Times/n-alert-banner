@@ -20,12 +20,35 @@ $errorTextColor: oColorsMix('black', 'crimson', 12.5);
 }
 
 @mixin alertBannerButtonError {
+	@include oButtons($theme: secondary);
 	border: 1px solid ;
 	color: $errorTextColor;
+	background-color: $errorBackgroundColor;
+
+	&:not([disabled]):hover {
+		background-color: darken($errorBackgroundColor, 8);
+		color: $errorTextColor;
+		border-color: $errorTextColor;
+	}
+
 }
 
 @mixin alertBannerLinkError {
 	color: $errorTextColor;
+	text-decoration: none;
+	cursor: pointer;
+	border-bottom: 2px solid oColorsMix('paper', 'crimson', 50);
+
+	&:hover,
+	&:focus {
+		color: $errorTextColor;
+		border-bottom-color: $errorTextColor;
+	}
+
+	&:focus {
+		outline: 3px solid $errorTextColor;
+		border-bottom-color: transparent;
+	}
 }
 
 @mixin alertBannerCloseButtonError {
