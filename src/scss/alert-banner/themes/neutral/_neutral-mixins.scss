@@ -9,7 +9,6 @@
 }
 
 @mixin alertBannerButtonNeutral {
-		$neutralTextColor: oColorsGetPaletteColor('black');
 	@include oButtonsCustomTheme(oColorsGetUseCase(alert-banner-button, background-neutral), oColorsGetUseCase(alert-banner-button, text-neutral));
 }
 
