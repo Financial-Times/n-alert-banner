@@ -155,7 +155,7 @@ In the markup, these can be applied as classes alongside the `n-alert-banner cla
 In the JavaScript, use the `theme` [option](#options) and pass in the unprefixed theme names:
 
 ```js
-const myBanner = new oBanner({
+const myBanner = new AlertBanner({
     theme: 'success'
 });
 ```
