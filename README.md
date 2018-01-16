@@ -6,7 +6,7 @@ n-alert-banner is a component used for product messaging.
 - [Usage](#usage)
   - [Behaviour](#behaviour)
   - [Markup](#markup)
-	- [Build](#Build)
+  - [Build](#Build)
   - [Sass](#sass)
   - [Themes](#themes)
 - [Contact](#contact)
@@ -15,7 +15,7 @@ n-alert-banner is a component used for product messaging.
 
 ## Usage
 
-n-alert-banner includes Sass and JavaScript to show and hide the alert banner. They can be created declaratively by adding [Markup](#markup) to the page, or imperatively using JavaScript ([Build](#Build)).
+n-alert-banner includes Sass and JavaScript to show and hide the alert banner. They can be created declaratively by adding [Markup](#markup) to the page, or imperatively using JavaScript ([Build](#build)).
 
 ### Behaviour
 
