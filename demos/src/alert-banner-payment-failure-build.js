@@ -10,7 +10,7 @@ function initDemos () {
 				contentLong2: 'Please update your card details to continue your FT subscription.',
 				contentShort: 'Please update your card details.',
 				linkLabel: 'My Account',
-				linkUrl: 'https://myaccount-test.ft.com/payment/view'
+				linkUrl: 'https://myaccount.ft.com/payment/view'
 			});
 		});
 	});
