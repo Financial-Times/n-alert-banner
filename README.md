@@ -6,7 +6,6 @@ n-alert-banner is a component used for product messaging.
 - [Usage](#usage)
   - [Behaviour](#behaviour)
   - [Markup](#markup)
-  - [JavaScript](#javascript)
   - [Sass](#sass)
   - [Themes](#themes)
 - [Contact](#contact)
@@ -15,7 +14,7 @@ n-alert-banner is a component used for product messaging.
 
 ## Usage
 
-n-alert-banner includes Sass and JavaScript to show and hide the alert banner. They can be created declaratively by adding markup to the page, or imperatively using JavaScript (only when not using the Build Service).
+n-alert-banner includes Sass and JavaScript to show and hide the alert banner. They can be created declaratively by adding [Markup](#markup) to the page, or imperatively using JavaScript ([Constructing an n-alert-banner](#Constructing an n-alert-banner)).
 
 ### Behaviour
 
@@ -23,7 +22,7 @@ n-alert-banner elements appears fixed to the top of the screen. You can dismiss 
 
 ### Markup
 
-This HTML demonstrates the declarative way to instantiate n-alert-banner. If you are using the Build Service or firing your own `o.DOMContentLoaded` event, this is all you need to create a banner:
+This HTML demonstrates the declarative way to instantiate n-alert-banner. Initialize the alert banner by using `AlertBanner.init()` and add the following to your code:
 
 ```html
 <div class="n-alert-banner n-alert-banner--{theme}" data-n-component="n-alert-banner">
@@ -55,9 +54,7 @@ This HTML demonstrates the declarative way to instantiate n-alert-banner. If you
 </div>
 ```
 
-### JavaScript
-
-No code will run automatically unless you are using the Build Service. You must either construct an n-alert-banner object or fire an `o.DOMContentLoaded` event, which n-alert-banner listens for.
+If you do not wish for the user to be able to close the alert banner use `AlertBanner.init(null, { closeButton: false})`.
 
 #### Constructing an n-alert-banner
 
@@ -104,18 +101,19 @@ There are several options used to change the appearance or behaviour of n-alert-
   - `bannerClass`: String. The top-level banner class, which other classes will be based on. Defaults to `n-alert-banner`
   - `contentLong`: String. The content to display on larger screens, or all screens if `contentShort` is not specified. Defaults to `&hellip;`
   - `contentShort`: String. The content to display on smaller screens. Defaults to the value of `contentLong`
-  - `buttonLabel`: String. The banner button label. Defaults to `null`
+  - `buttonLabel`: String. The banner button label. Set to `null` to hide the button. Defaults to `null`.
   - `buttonUrl`: String. The URL the button links to. Defaults to `#`
   - `linkLabel`: String. The banner link label. Set to `null` to hide the link. Defaults to `null`
   - `linkUrl`: String. The URL the link links to. Defaults to `#`
   - `closeButtonLabel`: String. The hidden accessible label for the close button. Defaults to `Close`.
   - `theme`: String. Themes to apply to the alert banner. [See the themes documentation](#themes) for available values. Defaults to `null`
+	- `closeButton`: Boolean. False prevents close button from being created. Defaults to `true`
 
 ### Sass
 
-As with all Origami components, o-tooltip has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-tooltip-is-silent: false;` in your Sass before you've imported the o-tooltip Sass.
+Similar to Origami components, n-alert-banner has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$n-alert-banner-is-silent: false;` in your Sass before you've imported the n-alert-banner Sass.
 
-o-tooltip includes mixins that you can use if you'd rather not have origami classnames in your page. These are only available if you're not using the Build Service:
+n-alert-banner includes mixins that you can use if you'd rather not have next classnames in your page.
 
 ```scss
 @include nAlertBanner($class: 'n-alert-banner', $themes: 'all');
@@ -152,7 +150,7 @@ In the markup, these can be applied as classes alongside the `n-alert-banner cla
 </div>
 ```
 
-In the JavaScript, use the `theme` [option](#options) and pass in the unprefixed theme names:
+In the JavaScript, use the `theme` [option](#options) and pass in the theme name:
 
 ```js
 const myBanner = new AlertBanner({
