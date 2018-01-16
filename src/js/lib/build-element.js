@@ -71,9 +71,9 @@ export default {
 		return alertBannerElement;
 	},
 
- closeButton: (alertBannerElement) => {
+	closeButton: (alertBannerElement) => {
 
-		const options = alertBannerElement.options
+		const options = alertBannerElement.options;
 		const closeButton = document.createElement('a');
 		closeButton.classList.add(options.closeButtonClass);
 		closeButton.setAttribute('role', 'button');
@@ -89,4 +89,4 @@ export default {
 
 		return closeButton;
 	}
-}
+};

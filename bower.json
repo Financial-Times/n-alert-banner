@@ -6,7 +6,11 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "build",
+    "Makefile",
+    "package-lock.json",
+    "secret-squirrel.js"
   ],
   "main": [
     "main.scss",

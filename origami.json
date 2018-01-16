@@ -9,7 +9,7 @@
 		"email": "conversion.tech@ft.com",
 		"slack": "financialtimes/ft-next-conversion"
 	},
-	"supportStatus": "active",
+	"supportStatus": "experimental",
 	"browserFeatures": {},
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/n-alert-banner"
