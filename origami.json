@@ -43,6 +43,17 @@
 			"js": "demos/src/server-side-build.js"
 		},
 		{
+			"name": "alert-banner-payment-failure",
+			"template": "demos/src/alert-banner-payment-failure.mustache",
+			"description":  "shows an error alert banner to tell the user to update their payment details"
+		},
+		{
+			"name": "alert-banner-payment-failure-build",
+			"template": "demos/src/alert-banner-payment-failure-build.mustache",
+			"description": "payment alert banner",
+			"js": "demos/src/alert-banner-payment-failure-build.js"
+		},
+		{
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",
 			"hidden": true,

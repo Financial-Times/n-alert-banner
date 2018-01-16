@@ -27,15 +27,4 @@ describe('main', () => {
 		assert.strictEqual(AlertBanner, AlertBannerSrc);
 	});
 
-	it('should auto-initialize banners', done => {
-		document.addEventListener('o.DOMContentLoaded', () => {
-			assert.calledOnce(AlertBanner.init);
-			assert.calledWithExactly(AlertBanner.init);
-			assert.calledOnce(document.removeEventListener);
-			assert.calledWith(document.removeEventListener, 'o.DOMContentLoaded');
-			done();
-		});
-		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-	});
-
 });

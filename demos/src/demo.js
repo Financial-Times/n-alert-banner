@@ -1,9 +1,3 @@
-import '../../main.js';
+import AlertBanner from '../../main.js';
 
-function initDemos() {
-	document.addEventListener('DOMContentLoaded', () => {
-		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-	});
-}
-
-initDemos();
+AlertBanner.init();
