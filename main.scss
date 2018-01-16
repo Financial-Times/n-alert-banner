@@ -20,7 +20,6 @@
 
 @if ($n-alert-banner-is-silent == false) {
 
-	// @include nAlertBanner($class: 'n-alert-banner', $themes: 'success' );
 	@include nAlertBanner;
 
 	// Set to silent again to avoid being output twice
