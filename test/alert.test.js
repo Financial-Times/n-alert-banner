@@ -1,8 +1,7 @@
-AlertBanner/* eslint-env mocha, sinon, proclaim */
-
+/* eslint-env mocha, sinon, proclaim */
 import AlertBanner from './../src/js/alert-banner';
 import getOptions from './../src/js/lib/get-options';
-import buildElement from './../src/js/lib/build-element'
+import buildElement from './../src/js/lib/build-element';
 import * as assert from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import mainFixture from './fixture/main';
@@ -228,7 +227,7 @@ describe('AlertBanner', () => {
 			afterEach(() => {
 				buildElement.alertBanner.restore();
 				buildElement.closeButton.restore();
-			})
+			});
 
 			it('does not build a alertBanner element', () => {
 				assert.notCalled(buildElement.alertBanner);
@@ -243,7 +242,7 @@ describe('AlertBanner', () => {
 			it('builds a close button element and stores it on the `closeButtonElement` property', () => {
 				assert.calledOnce(buildElement.closeButton);
 				assert.strictEqual(buildElement.closeButton(alertBanner), mockCloseButtonElement);
-			})
+			});
 
 			it('appends the close button element to the inner element', () => {
 				assert.calledOnce(mockAlertInnerElement.appendChild);
@@ -278,7 +277,7 @@ describe('AlertBanner', () => {
 
 		it('has an open method', () => {
 			assert.isFunction(alertBanner.open);
-		})
+		});
 
 		describe('.open()', () => {
 
@@ -322,7 +321,7 @@ describe('AlertBanner', () => {
 				assert.calledOnce(alertBannerElement.dispatchEvent);
 				assert.instanceOf(alertBannerElement.dispatchEvent.firstCall.args[0], CustomEvent);
 				assert.strictEqual(alertBannerElement.dispatchEvent.firstCall.args[0].type, 'n.alertBannerClosed');
-			})
+			});
 
 		});
 
@@ -357,7 +356,7 @@ describe('AlertBanner', () => {
 					linkLabel: 'mockLinkLabel',
 					linkUrl: 'mockLinkUrl',
 					theme: 'mock-theme'
-				}
+				};
 
 				returnValue = buildElement.alertBanner(options);
 			});

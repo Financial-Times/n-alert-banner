@@ -15,10 +15,10 @@
 }
 
 @mixin alertBannerInner {
+	@include oTypographySans($scale: 0);
+
 	height: 50px;
 	white-space: nowrap;
-
-	@include oTypographySans($scale: 0);
 	// sass-lint:disable no-vendor-prefixes
 	-webkit-font-smoothing: antialiased;
 	// sass-lint:enable no-vendor-prefixes
@@ -101,8 +101,8 @@
 
 @mixin alertBannerLink {
 	@include oGridRespondTo($until: M) {
-		margin-right: 60px;
 		@include oTypographySans($scale: -1);
+		margin-right: 60px;
 	}
 	@include oTypographySans($scale: 0);
 	height: 28px;

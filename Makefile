@@ -9,3 +9,9 @@ export IGNORE_A11Y = true
 
 demo:
 	./node_modules/.bin/obt demo --run-server --watch
+
+verify:
+	./node_modules/.bin/obt verify
+
+test:
+	./node_modules/.bin/obt test
