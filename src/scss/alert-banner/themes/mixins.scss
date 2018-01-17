@@ -1,0 +1,40 @@
+@mixin alertBannerOuterTheme($backgroundColor) {
+	background-color: $backgroundColor;
+}
+
+@mixin alertBannerInnerTheme($textColor) {
+	color: $textColor;
+}
+
+@mixin alertBannerButtonTheme($backgroundColor, $textColor) {
+	border: solid 1px $textColor;
+	color: $textColor;
+
+	&:not([disabled]):hover {
+		background-color: darken($backgroundColor, 8);
+		color: $textColor;
+		border-color: $textColor;
+	}
+}
+
+@mixin alertBannerLinkTheme($textColor) {
+	color: $textColor;
+	text-decoration: none;
+	cursor: pointer;
+	border-bottom: 2px solid lighten($textColor, 8);
+
+	&:hover,
+	&:focus {
+		color: $textColor;
+		border-bottom-color: $textColor;
+	}
+
+	&:focus {
+		outline: 3px solid $textColor;
+		border-bottom-color: transparent;
+	}
+}
+
+@mixin alertBannerCloseButtonTheme($textColor) {
+	@include oIconsGetIcon('cross', $textColor, $_n-alert-banner-close-button-size);
+}
