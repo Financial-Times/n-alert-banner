@@ -1,5 +1,5 @@
 {
-  "name": "n-alert",
+  "name": "n-alert-banner",
   "description": "Used for product messaging",
   "ignore": [
     "**/.*",
