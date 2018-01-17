@@ -15,3 +15,6 @@ verify:
 
 test:
 	./node_modules/.bin/obt test
+
+test-debug:
+	./node_modules/.bin/obt test --debug
