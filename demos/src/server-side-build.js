@@ -6,8 +6,8 @@ function initDemos() {
 		document.getElementById('alert-banner-error-button').addEventListener('click', () => {
 			new AlertBanner(null, {
 				theme: 'error',
-				contentLong1: 'Something went wrong!',
-				contentLong2: 'Please check and try again.',
+				contentLongBold: 'Something went wrong!',
+				contentLong: 'Please check and try again.',
 				contentShort: 'Please check and try again.',
 				buttonLabel: 'Button',
 				buttonUrl: '#try-button',
@@ -19,8 +19,8 @@ function initDemos() {
 		document.getElementById('alert-banner-neutral-button').addEventListener('click', () => {
 			new AlertBanner(null, {
 				theme: 'neutral',
-				contentLong1: 'Good to know!',
-				contentLong2: 'Keeping you informed a neutral thing happened.',
+				contentLongBold: 'Good to know!',
+				contentLong: 'Keeping you informed a neutral thing happened.',
 				contentShort: 'A neutral thing happened.',
 				buttonLabel: 'Button',
 				buttonUrl: '#try-button',
@@ -32,8 +32,8 @@ function initDemos() {
 		document.getElementById('alert-banner-success-button').addEventListener('click', () => {
 			new AlertBanner(null, {
 				theme: 'success',
-				contentLong1: 'Well done!',
-				contentLong2: 'You successfully completed this task.',
+				contentLongBold: 'Well done!',
+				contentLong: 'You successfully completed this task.',
 				contentShort: 'You successfully completed this task.',
 				buttonLabel: 'Button',
 				buttonUrl: '#try-button',
