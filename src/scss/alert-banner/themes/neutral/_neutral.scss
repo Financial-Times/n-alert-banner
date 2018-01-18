@@ -1,13 +1,15 @@
 @mixin nAlertBannerNeutralMixins($class) {
+	$neutralBackgroundColor: oColorsGetPaletteColor('white-60');
+	$neutralTextColor: oColorsGetPaletteColor('black');
 
 	.#{$class}--neutral {
 
 		.#{$class}__outer {
-			@include alertBannerOuterNeutral;
+			@include alertBannerOuterTheme($neutralBackgroundColor);
 		}
 
 		.#{$class}__inner {
-			@include alertBannerInnerNeutral;
+			@include alertBannerInnerTheme($neutralTextColor);
 		}
 
 		.#{$class}__content {
@@ -23,7 +25,7 @@
 		}
 
 		.#{$class}__close {
-			@include alertBannerCloseButtonNeutral;
+			@include alertBannerCloseButtonTheme($neutralTextColor);
 		}
 	}
 }

@@ -1,29 +1,31 @@
 @mixin nAlertBannerSuccessMixins($class: 'n-alert-banner') {
+	$successBackgroundColor: oColorsMix('paper', 'jade', 80);
+	$successTextColor: oColorsMix('black', 'jade', 43);
 
 	.#{$class}--success {
 
 		.#{$class}__outer {
-			@include alertBannerOuterSuccess;
+			@include alertBannerOuterTheme($successBackgroundColor);
 		}
 
 		.#{$class}__inner {
-			@include alertBannerInnerSuccess;
+			@include alertBannerInnerTheme($successTextColor);
 		}
 
 		.#{$class}__content {
-			@include alertBannerContentSuccess;
+			@include alertBannerContentSuccess($successTextColor);
 		}
 
 		.#{$class}__button {
-			@include alertBannerButtonSuccess;
+			@include alertBannerButtonTheme($successBackgroundColor, $successTextColor);
 		}
 
 		.#{$class}__link {
-			@include alertBannerLinkSuccess;
+			@include alertBannerLinkTheme($successTextColor);
 		}
 
 		.#{$class}__close {
-			@include alertBannerCloseButtonSuccess;
+			@include alertBannerCloseButtonTheme($successTextColor);
 		}
 	}
 }

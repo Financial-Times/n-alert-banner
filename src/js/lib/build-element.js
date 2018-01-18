@@ -20,7 +20,7 @@ export default {
 		if (options.contentShort) {
 			contentHtml = `
 				<div class="${options.contentClass} ${options.contentLongClass}">
-					<p><b>${options.contentLong1}</b> ${options.contentLong2}</p>
+					<p><b>${options.contentLongBold}</b> ${options.contentLong}</p>
 				</div>
 				<div class="${options.contentClass} ${options.contentShortClass}">
 					<p>${options.contentShort}</p>
@@ -29,7 +29,7 @@ export default {
 		} else {
 			contentHtml = `
 				<div class="${options.contentClass} ${options.contentLongClass}">
-					<p><b>${options.contentLong1}</b> ${options.contentLong2}</p>
+					<p><b>${options.contentLongBold}</b> ${options.contentLong}</p>
 				</div>
 			`;
 		}

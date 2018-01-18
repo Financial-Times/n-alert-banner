@@ -1,29 +1,32 @@
+
 @mixin nAlertBannerErrorMixins($class: 'n-alert-banner') {
+	$errorBackgroundColor: oColorsMix('paper', 'crimson', 90);
+	$errorTextColor: oColorsMix('black', 'crimson', 12.5);
 
 	.#{$class}--error {
 
 		.#{$class}__outer {
-			@include alertBannerOuterError;
+			@include alertBannerOuterTheme($errorBackgroundColor);
 		}
 
 		.#{$class}__inner {
-			@include alertBannerInnerError;
+			@include alertBannerInnerTheme($errorTextColor);
 		}
 
 		.#{$class}__content {
-			@include alertBannerContentError;
+			@include alertBannerContentError($errorBackgroundColor, $errorTextColor);
 		}
 
 		.#{$class}__button {
-			@include alertBannerButtonError;
+			@include alertBannerButtonTheme($errorBackgroundColor, $errorTextColor);
 		}
 
 		.#{$class}__link {
-			@include alertBannerLinkError;
+			@include alertBannerLinkTheme($errorTextColor);
 		}
 
 		.#{$class}__close {
-			@include alertBannerCloseButtonError;
+			@include alertBannerCloseButtonTheme($errorTextColor);
 		}
 	}
 }
