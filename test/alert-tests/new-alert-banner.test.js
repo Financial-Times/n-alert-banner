@@ -13,7 +13,7 @@ sinon.assert.expose(assert, {
 });
 
 describe('new AlertBanner(alertBannerElement, options)', () => {
-	// let testArea;
+	let testArea;
 	let alertBanner;
 	let alertBannerCloseStub;
 	let alertBannerElement;
@@ -23,7 +23,7 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 	let options;
 
 	beforeEach(() => {
-		// document.body.innerHTML += '<div id="test-area"></div>';
+		document.body.innerHTML += '<div id="test-area"></div>';
 		testArea = document.getElementById('test-area');
 		testArea.innerHTML = mainFixture;
 		AlertBanner._alertInstances = [];
@@ -45,6 +45,10 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 		AlertBanner.prototype.open.restore();
 		AlertBanner.prototype.close.restore();
 
+	});
+
+	afterEach(() => {
+		testArea.innerHTML = '';
 	});
 
 	it('stores `alertBannerElement` in a `alertBannerElement` property', () => {
