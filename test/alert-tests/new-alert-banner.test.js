@@ -69,14 +69,15 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 			buttonClass: 'n-alert-banner__button',
 			linkClass: 'n-alert-banner__link',
 			closeButtonClass: 'n-alert-banner__close',
-			contentLong1: '&hellip;',
-			contentLong2: '&hellip;',
+			contentLongBold: '&hellip;',
+			contentLong: '&hellip;',
 			contentShort: null,
 			buttonLabel: null,
 			buttonUrl: '#',
 			linkLabel: null,
 			linkUrl: '#',
 			closeButtonLabel: 'Close',
+			closeButton: true,
 			theme: null
 		});
 	});
@@ -340,8 +341,8 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 				actionSecondaryClass: 'mockActionSecondaryClass',
 				buttonClass: 'mockButtonClass',
 				linkClass: 'mockLinkClass',
-				contentLong1: 'mockContentLong1',
-				contentLong2: 'mockContentLong2',
+				contentLongBold: 'mockContentLongBold',
+				contentLong: 'mockContentLong',
 				contentShort: 'mockContentShort',
 				buttonLabel: 'mockButtonLabel',
 				buttonUrl: 'mockButtonUrl',
@@ -363,7 +364,7 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 					<div class="mockOuterClass">
 						<div class="mockInnerClass" data-n-alert-banner-inner="">
 							<div class="mockContentClass mockContentLongClass">
-								<p><b>mockContentLong1</b> mockContentLong2</p>
+								<p><b>mockContentLongBold</b> mockContentLong</p>
 							</div>
 							<div class="mockContentClass mockContentShortClass">
 								<p>mockContentShort</p>
@@ -395,7 +396,7 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 					<div class="mockOuterClass">
 						<div class="mockInnerClass" data-n-alert-banner-inner="">
 							<div class="mockContentClass mockContentLongClass">
-								<p><b>mockContentLong1</b> mockContentLong2</p>
+								<p><b>mockContentLongBold</b> mockContentLong</p>
 							</div>
 							<div class="mockActionsClass">
 								<div class="mockActionClass">
@@ -426,7 +427,7 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 					<div class="mockOuterClass">
 						<div class="mockInnerClass" data-n-alert-banner-inner="">
 							<div class="mockContentClass mockContentLongClass">
-								<p><b>mockContentLong1</b> mockContentLong2</p>
+								<p><b>mockContentLongBold</b> mockContentLong</p>
 							</div>
 							<div class="mockContentClass mockContentShortClass">
 								<p>mockContentShort</p>
@@ -456,7 +457,7 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 					<div class="mockOuterClass">
 						<div class="mockInnerClass" data-n-alert-banner-inner="">
 							<div class="mockContentClass mockContentLongClass">
-								<p><b>mockContentLong1</b> mockContentLong2</p>
+								<p><b>mockContentLongBold</b> mockContentLong</p>
 							</div>
 							<div class="mockContentClass mockContentShortClass">
 								<p>mockContentShort</p>
