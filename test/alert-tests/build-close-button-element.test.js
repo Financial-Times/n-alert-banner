@@ -1,52 +1,43 @@
 /* eslint-env mocha, sinon, proclaim */
-
 import AlertBanner from '../../src/js/alert-banner';
-import getOptions from '../../src/js/lib/get-options';
 import buildElement from '../../src/js/lib/build-element';
 import * as assert from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
-import mainFixture from '../fixture/main';
+import { fixtures, stubs, createOneLineString } from './helpers/index';
 
 sinon.assert.expose(assert, {
 	includeFail: false,
 	prefix: ''
 });
 
-describe('new AlertBanner(alertBannerElement, options)', () => {
-	let alertBanner;
-	let alertBannerCloseStub;
+describe('.buildCloseButtonElement()', () => {
 	let alertBannerElement;
-	let alertBannerGetOptionsFromDomStub;
-	let alertBannerOpenStub;
-	let alertBannerRenderStub;
-	let options;
+	let alertBanner;
+	let sandbox;
 
 	beforeEach(() => {
-		AlertBanner._alertInstances = [];
+		sandbox = sinon.sandbox.create();
+		stubs.alertBannerGetOptionsFromDom(sandbox);
+		stubs.alertBannerOpen(sandbox);
+		stubs.alertBannerClose(sandbox);
 
-		// Stub out methods called in constructor
-		alertBannerGetOptionsFromDomStub = sinon.stub(getOptions, 'fromDom');
-		alertBannerRenderStub = sinon.stub(AlertBanner.prototype, 'render');
-		alertBannerOpenStub = sinon.stub(AlertBanner.prototype, 'open');
-		alertBannerCloseStub = sinon.stub(AlertBanner.prototype, 'close');
-
-		// Create a alertBanner
 		alertBannerElement = document.querySelector('[data-n-component="n-alert-banner"]');
-		options = {};
-		alertBanner = new AlertBanner(alertBannerElement, options);
-
-		// Restore constructor stubs
-		getOptions.fromDom.restore();
-		AlertBanner.prototype.render.restore();
-		AlertBanner.prototype.open.restore();
-		AlertBanner.prototype.close.restore();
 
 	});
 
-	describe('.buildCloseButtonElement()', () => {
+
+	describe('is called', () => {
 		let returnValue;
 
 		beforeEach(() => {
+			stubs.alertBannerRender(sandbox);
+
+			// Create a alertBanner
+			let options = {};
+			alertBanner = new AlertBanner(alertBannerElement, options);
+
+			// Restore constructor stubs
+			sandbox.restore();
 
 			// Mock options used to test output HTML
 			alertBanner.options.closeButtonClass = 'mockCloseButtonClass';
@@ -66,9 +57,7 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 		});
 
 		it('constructs the element HTML based on the given options', () => {
-			assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-				<a class="mockCloseButtonClass" role="button" href="#void" aria-label="mockCloseButtonLabel" title="mockCloseButtonLabel"></a>
-			`.replace(/[\t\n]+/g, ''));
+			assert.strictEqual(createOneLineString(returnValue.outerHTML), createOneLineString(fixtures.mockCloseButtonElement));
 		});
 
 		it('adds a handler for the button click event', () => {
@@ -99,5 +88,39 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 
 		});
 
+	});
+
+	describe('is not called', () => {
+		let mockCloseButtonElement;
+		let alertBanner;
+
+		beforeEach(() => {
+
+			mockCloseButtonElement = document.createElement('a');
+
+			stubs.buildElementAlertBanner(sandbox);
+			sinon.stub(document.body, 'appendChild');
+			sinon.stub(buildElement, 'closeButton').returns(mockCloseButtonElement);
+
+			let options = { closeButton: false };
+			alertBanner = new AlertBanner(alertBannerElement, options);
+
+			// Restore constructor stubs
+			sandbox.restore();
+
+		});
+
+		afterEach(() => {
+			document.body.appendChild.restore();
+			buildElement.closeButton.restore();
+		});
+
+		it('has buttonClose set to false', () => {
+			assert.notCalled(buildElement.closeButton);
+		});
+
+		it('therefore does not construct the element HTML based on the given options', () => {
+			assert.notEqual(alertBanner.innerElement, fixtures.closeButtonElement);
+		});
 	});
 });
