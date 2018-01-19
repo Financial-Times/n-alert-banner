@@ -2,6 +2,7 @@
 import AlertBanner from '../../src/js/alert-banner';
 import * as assert from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
+import stubs from './helpers/stubs';
 
 sinon.assert.expose(assert, {
 	includeFail: false,
@@ -12,24 +13,27 @@ describe('.init(rootElement, options)', () => {
 	let mockRootElement;
 	let options;
 	let returnValue;
+	let testArea;
+	let sandbox;
 
 	beforeEach(() => {
 		document.body.innerHTML += '<div id="test-area"></div>';
 		testArea = document.getElementById('test-area');
 
+		sandbox = sinon.sandbox.create();
+		stubs.alertBannerGetOptionsFromDom(sandbox);
+		stubs.alertBannerRender(sandbox);
+		stubs.alertBannerOpen(sandbox);
+		stubs.alertBannerClose(sandbox);
+
 		sinon.stub(document, 'querySelector');
-		sinon.stub(AlertBanner.prototype, 'render');
-		sinon.stub(AlertBanner.prototype, 'open');
 		mockRootElement = document.createElement('div');
-		options = {
-			mockOption: 'test'
-		};
+		options = { mockOption: 'test' };
 	});
 
 	afterEach(() => {
 		document.querySelector.restore();
-		AlertBanner.prototype.render.restore();
-		AlertBanner.prototype.open.restore();
+		sandbox.restore();
 
 		testArea.innerHTML = '';
 	});
