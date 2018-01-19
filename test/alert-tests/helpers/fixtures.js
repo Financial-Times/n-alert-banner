@@ -84,6 +84,27 @@ export const noLink = `
 </div>
 `;
 
+export const noButton = `
+<div class="mockAlertClass mockAlertClass--mock-theme" data-n-component="n-alert-banner">
+	<div class="mockOuterClass">
+		<div class="mockInnerClass" data-n-alert-banner-inner="">
+			<div class="mockContentClass mockContentLongClass">
+				<p><b>mockContentLongBold</b> mockContentLong</p>
+			</div>
+			<div class="mockContentClass mockContentShortClass">
+				<p>mockContentShort</p>
+			</div>
+			<div class="mockActionsClass">
+				<div class="mockActionClass mockActionSecondaryClass">
+					<a href="mockLinkUrl" class="mockLinkClass">mockLinkLabel</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+`;
+
+
 export const mockTheme = `
 <div class="mockAlertClass mockAlertClass--mock-theme" data-n-component="n-alert-banner">
 	<div class="mockOuterClass">

@@ -76,6 +76,19 @@ describe('buildElement.alertBanner()', () => {
 
 	});
 
+	describe('when `options.buttonLabel` is not a string', () => {
+
+		beforeEach(() => {
+			options.buttonLabel = null;
+			returnValue = buildElement.alertBanner(options);
+		});
+
+		it('does not include a secondary action/link', () => {
+			assert.strictEqual(createOneLineString(returnValue.outerHTML), createOneLineString(fixtures.noButton));
+		});
+
+	});
+
 	describe('when `options.theme` is defined and is a string', () => {
 
 		beforeEach(() => {
