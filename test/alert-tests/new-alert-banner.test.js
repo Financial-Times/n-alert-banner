@@ -5,7 +5,8 @@ import getOptions from '../../src/js/lib/get-options';
 import buildElement from '../../src/js/lib/build-element';
 import * as assert from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
-import mainFixture from '../fixture/main';
+import * as fixtures from './helpers/fixtures';
+import stubs from './helpers/stubs';
 
 sinon.assert.expose(assert, {
 	includeFail: false,
@@ -21,11 +22,12 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 	let alertBannerOpenStub;
 	let alertBannerRenderStub;
 	let options;
+	let sandbox;
 
 	beforeEach(() => {
 		document.body.innerHTML += '<div id="test-area"></div>';
 		testArea = document.getElementById('test-area');
-		testArea.innerHTML = mainFixture;
+		testArea.innerHTML = fixtures.main;
 		AlertBanner._alertInstances = [];
 
 		// Stub out methods called in constructor
@@ -138,16 +140,17 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 		beforeEach(() => {
 
 			// Stub out methods called in constructor
-			alertBannerRenderStub = sinon.stub(AlertBanner.prototype, 'render');
-			alertBannerOpenStub = sinon.stub(AlertBanner.prototype, 'open');
+			sandbox = sinon.sandbox.create();
+			stubs.alertBannerRender(sandbox);
+			stubs.alertBannerOpen(sandbox);
+			stubs.alertBannerClose(sandbox);
 
 			// Create a alertBanner
 			options.alertBannerClass = 'payment-alert';
 			alertBanner = new AlertBanner(alertBannerElement, options);
 
 			// Restore constructor stubs
-			AlertBanner.prototype.render.restore();
-			AlertBanner.prototype.open.restore();
+			sandbox.restore();
 
 		});
 
@@ -173,8 +176,10 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 
 			// Stub out methods called in constructor
 			alertBannerGetOptionsFromDomStub = sinon.stub(getOptions, 'fromDom');
-			alertBannerRenderStub = sinon.stub(AlertBanner.prototype, 'render');
-			alertBannerOpenStub = sinon.stub(AlertBanner.prototype, 'open');
+			sandbox = sinon.sandbox.create();
+			stubs.alertBannerRender(sandbox);
+			stubs.alertBannerOpen(sandbox);
+			stubs.alertBannerClose(sandbox);
 
 			alertBannerGetOptionsFromDomStub.returns({
 				mockOption: 'from dom'
@@ -185,8 +190,7 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 
 			// Restore constructor stubs
 			getOptions.fromDom.restore();
-			AlertBanner.prototype.render.restore();
-			AlertBanner.prototype.open.restore();
+			sandbox.restore();
 
 		});
 
@@ -326,224 +330,8 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 		assert.isFunction(buildElement.alertBanner);
 	});
 
-	describe('buildElement.alertBanner()', () => {
-		let returnValue;
-
-		beforeEach(() => {
-
-			// Mock options used to test output HTML
-			options = {
-				alertBannerClass: 'mockAlertClass',
-				alertBannerClosedClass: 'mockAlertClosedClass',
-				outerClass: 'mockOuterClass',
-				innerClass: 'mockInnerClass',
-				contentClass: 'mockContentClass',
-				contentLongClass: 'mockContentLongClass',
-				contentShortClass: 'mockContentShortClass',
-				actionsClass: 'mockActionsClass',
-				actionClass: 'mockActionClass',
-				actionSecondaryClass: 'mockActionSecondaryClass',
-				buttonClass: 'mockButtonClass',
-				linkClass: 'mockLinkClass',
-				contentLongBold: 'mockContentLongBold',
-				contentLong: 'mockContentLong',
-				contentShort: 'mockContentShort',
-				buttonLabel: 'mockButtonLabel',
-				buttonUrl: 'mockButtonUrl',
-				linkLabel: 'mockLinkLabel',
-				linkUrl: 'mockLinkUrl',
-				theme: 'mock-theme'
-			};
-
-			returnValue = buildElement.alertBanner(options);
-		});
-
-		it('returns an HTML element', () => {
-			assert.instanceOf(returnValue, HTMLElement);
-		});
-
-		it('constructs the element HTML based on the given options', () => {
-			assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-				<div class="mockAlertClass mockAlertClass--mock-theme" data-n-component="n-alert-banner">
-					<div class="mockOuterClass">
-						<div class="mockInnerClass" data-n-alert-banner-inner="">
-							<div class="mockContentClass mockContentLongClass">
-								<p><b>mockContentLongBold</b> mockContentLong</p>
-							</div>
-							<div class="mockContentClass mockContentShortClass">
-								<p>mockContentShort</p>
-							</div>
-							<div class="mockActionsClass">
-								<div class="mockActionClass">
-									<a href="mockButtonUrl" class="mockButtonClass">mockButtonLabel</a>
-								</div>
-								<div class="mockActionClass mockActionSecondaryClass">
-									<a href="mockLinkUrl" class="mockLinkClass">mockLinkLabel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			`.replace(/[\t\n]+/g, ''));
-		});
-
-		describe('when `options.contentShort` is not a string', () => {
-
-			beforeEach(() => {
-				options.contentShort = null;
-				returnValue = buildElement.alertBanner(options);
-			});
-
-			it('outputs only one content element using `options.contentLong`', () => {
-				assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-				<div class="mockAlertClass mockAlertClass--mock-theme" data-n-component="n-alert-banner">
-					<div class="mockOuterClass">
-						<div class="mockInnerClass" data-n-alert-banner-inner="">
-							<div class="mockContentClass mockContentLongClass">
-								<p><b>mockContentLongBold</b> mockContentLong</p>
-							</div>
-							<div class="mockActionsClass">
-								<div class="mockActionClass">
-									<a href="mockButtonUrl" class="mockButtonClass">mockButtonLabel</a>
-								</div>
-								<div class="mockActionClass mockActionSecondaryClass">
-									<a href="mockLinkUrl" class="mockLinkClass">mockLinkLabel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				`.replace(/[\t\n]+/g, ''));
-			});
-
-		});
-
-		describe('when `options.linkLabel` is not a string', () => {
-
-			beforeEach(() => {
-				options.linkLabel = null;
-				returnValue = buildElement.alertBanner(options);
-			});
-
-			it('does not include a secondary action/link', () => {
-				assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-				<div class="mockAlertClass mockAlertClass--mock-theme" data-n-component="n-alert-banner">
-					<div class="mockOuterClass">
-						<div class="mockInnerClass" data-n-alert-banner-inner="">
-							<div class="mockContentClass mockContentLongClass">
-								<p><b>mockContentLongBold</b> mockContentLong</p>
-							</div>
-							<div class="mockContentClass mockContentShortClass">
-								<p>mockContentShort</p>
-							</div>
-							<div class="mockActionsClass">
-								<div class="mockActionClass">
-									<a href="mockButtonUrl" class="mockButtonClass">mockButtonLabel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				`.replace(/[\t\n]+/g, ''));
-			});
-
-		});
-
-		describe('when `options.theme` is defined and is a string', () => {
-
-			beforeEach(() => {
-				returnValue = buildElement.alertBanner(options);
-			});
-
-			it('adds the theme class to the alert banner element', () => {
-				assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-				<div class="mockAlertClass mockAlertClass--mock-theme" data-n-component="n-alert-banner">
-					<div class="mockOuterClass">
-						<div class="mockInnerClass" data-n-alert-banner-inner="">
-							<div class="mockContentClass mockContentLongClass">
-								<p><b>mockContentLongBold</b> mockContentLong</p>
-							</div>
-							<div class="mockContentClass mockContentShortClass">
-								<p>mockContentShort</p>
-							</div>
-							<div class="mockActionsClass">
-								<div class="mockActionClass">
-									<a href="mockButtonUrl" class="mockButtonClass">mockButtonLabel</a>
-								</div>
-								<div class="mockActionClass mockActionSecondaryClass">
-									<a href="mockLinkUrl" class="mockLinkClass">mockLinkLabel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				`.replace(/[\t\n]+/g, ''));
-			});
-
-		});
-
-	});
-
 	it('has a buildCloseButtonElement method', () => {
 		assert.isFunction(buildElement.alertBanner);
-	});
-
-	describe('.buildCloseButtonElement()', () => {
-		let returnValue;
-
-		beforeEach(() => {
-
-			// Mock options used to test output HTML
-			alertBanner.options.closeButtonClass = 'mockCloseButtonClass';
-			alertBanner.options.closeButtonLabel = 'mockCloseButtonLabel';
-
-			sinon.stub(HTMLElement.prototype, 'addEventListener');
-
-			returnValue = buildElement.closeButton(alertBanner);
-		});
-
-		afterEach(() => {
-			HTMLElement.prototype.addEventListener.restore();
-		});
-
-		it('returns an HTML element', () => {
-			assert.instanceOf(returnValue, HTMLElement);
-		});
-
-		it('constructs the element HTML based on the given options', () => {
-			assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-				<a class="mockCloseButtonClass" role="button" href="#void" aria-label="mockCloseButtonLabel" title="mockCloseButtonLabel"></a>
-			`.replace(/[\t\n]+/g, ''));
-		});
-
-		it('adds a handler for the button click event', () => {
-			assert.calledOnce(returnValue.addEventListener);
-			assert.calledWith(returnValue.addEventListener, 'click');
-			assert.isFunction(returnValue.addEventListener.firstCall.args[1]);
-		});
-
-		describe('click handler', () => {
-			let event;
-
-			beforeEach(() => {
-				const clickHandler = returnValue.addEventListener.firstCall.args[1];
-				event = {
-					preventDefault: sinon.stub()
-				};
-				sinon.stub(alertBanner, 'close');
-				clickHandler(event);
-			});
-
-			it('closes the alertBanner', () => {
-				assert.calledOnce(alertBanner.close);
-			});
-
-			it('prevents the default click behaviour', () => {
-				assert.calledOnce(event.preventDefault);
-			});
-
-		});
-
 	});
 
 });
