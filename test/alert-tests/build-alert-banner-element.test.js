@@ -83,7 +83,7 @@ describe('buildElement.alertBanner()', () => {
 			returnValue = buildElement.alertBanner(options);
 		});
 
-		it('does not include a secondary action/link', () => {
+		it('does not include a button', () => {
 			assert.strictEqual(createOneLineString(returnValue.outerHTML), createOneLineString(fixtures.noButton));
 		});
 
