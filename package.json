@@ -7,6 +7,6 @@
   "scripts": {
     "precommit": "make verify -j3 && node_modules/.bin/secret-squirrel",
     "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
-    "prepush": "make unit-test && make verify -j3"
+    "prepush": "make test && make verify -j3"
   }
 }
