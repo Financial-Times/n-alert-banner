@@ -5,8 +5,8 @@
     "origami-build-tools": "^7.2.4"
   },
   "scripts": {
-    "precommit": "node_modules/.bin/secret-squirrel",
+    "precommit": "make verify -j3 && node_modules/.bin/secret-squirrel",
     "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
-    "prepush": "make verify -j3"
+    "prepush": "make unit-test && make verify -j3"
   }
 }
