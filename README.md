@@ -54,7 +54,7 @@ This HTML demonstrates the declarative way to instantiate n-alert-banner. Initia
 </div>
 ```
 
-If you do not wish for the user to be able to close the alert banner add `data-n-alert-banner-no-close-button=""` to your HTML.
+If you do not wish for the user to be able to close the alert banner add `data-n-alert-banner-close-button="false"` to your HTML.
 
 ### Build
 
