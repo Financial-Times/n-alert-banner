@@ -12,7 +12,8 @@ function initDemos() {
 				buttonLabel: 'Button',
 				buttonUrl: '#try-button',
 				linkLabel: 'Text link',
-				linkUrl: '#feedback-link'
+				linkUrl: '#feedback-link',
+				attachToNavigation: true
 			});
 		});
 

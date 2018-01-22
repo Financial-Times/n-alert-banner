@@ -1,5 +1,9 @@
 import buildElement from './lib/build-element';
 import getOptions from './lib/get-options';
+import addAlertBannerUnderNav from './lib/add-alert-banner-under-nav';
+
+const NAV_ELEMENT_ID ='#site-navigation';
+const ALERT_BANNER_DATA_COMPONENT = '[data-n-component="n-alert-banner"]';
 /**
  * Represents a alertBanner.
  */
@@ -16,6 +20,8 @@ class AlertBanner {
 
 		// Default the options
 		const alertBannerClass = options && options.alertBannerClass ? options.alertBannerClass : 'n-alert-banner';
+
+		const attachToNavigation = this.alertBannerElement && this.alertBannerElement.querySelector('[data-n-alert-banner-attach-to-navigation="true"]') !== null || options && options.attachToNavigation === true;
 
 		this.options = Object.assign({}, {
 			autoOpen: true,
@@ -43,6 +49,7 @@ class AlertBanner {
 			linkUrl: '#',
 			closeButtonLabel: 'Close',
 			closeButton: true,
+			attachToNavigation: attachToNavigation || false,
 
 			theme: null
 
@@ -77,6 +84,13 @@ class AlertBanner {
 			// Build the close button
 			this.closeButtonElement = buildElement.closeButton(this);
 			this.innerElement.appendChild(this.closeButtonElement);
+		}
+
+		// Attach alert banner below navigation header.
+		if (this.options.attachToNavigation) {
+			const navHeader = document.querySelector(NAV_ELEMENT_ID);
+			const alertBannerDataComponent = document.querySelector(ALERT_BANNER_DATA_COMPONENT);
+			addAlertBannerUnderNav(navHeader, alertBannerDataComponent);
 		}
 
 	}
