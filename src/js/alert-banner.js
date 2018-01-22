@@ -16,6 +16,7 @@ class AlertBanner {
 
 		// Default the options
 		const alertBannerClass = options && options.alertBannerClass ? options.alertBannerClass : 'n-alert-banner';
+		const noCloseButton = this.alertBannerElement && this.alertBannerElement.querySelector('[data-n-alert-banner-close-button="false"]') !== null || options && options.noCloseButton === true;
 
 		this.options = Object.assign({}, {
 			autoOpen: true,
@@ -42,7 +43,7 @@ class AlertBanner {
 			linkLabel: null,
 			linkUrl: '#',
 			closeButtonLabel: 'Close',
-			closeButton: true,
+			noCloseButton: noCloseButton || false,
 
 			theme: null
 
@@ -71,7 +72,7 @@ class AlertBanner {
 			document.body.appendChild(this.alertBannerElement);
 		}
 
-		if (this.options.closeButton) {
+		if (!this.options.noCloseButton) {
 			// Select all the elements we need
 			this.innerElement = this.alertBannerElement.querySelector('[data-n-alert-banner-inner]');
 			// Build the close button
