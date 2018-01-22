@@ -85,7 +85,7 @@ describe('AlertBanner', () => {
 				linkLabel: null,
 				linkUrl: '#',
 				closeButtonLabel: 'Close',
-				closeButton: true,
+				noCloseButton: false,
 				theme: null
 			});
 		});
@@ -167,7 +167,7 @@ describe('AlertBanner', () => {
 				assert.strictEqual(alertBanner.options.actionSecondaryClass, 'payment-alert__action--secondary');
 				assert.strictEqual(alertBanner.options.buttonClass, 'payment-alert__button');
 				assert.strictEqual(alertBanner.options.linkClass, 'payment-alert__link');
-				assert.strictEqual(alertBanner.options.closeButton, true);
+				assert.strictEqual(alertBanner.options.noCloseButton, false);
 			});
 
 		});
