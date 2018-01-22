@@ -14,8 +14,14 @@ describe('.buildCloseButtonElement()', () => {
 	let alertBannerElement;
 	let alertBanner;
 	let sandbox;
+	let testArea;
 
 	beforeEach(() => {
+		document.body.innerHTML += '<div id="test-area"></div>';
+		testArea = document.getElementById('test-area');
+		testArea.innerHTML = fixtures.mainNoCloseButton;
+		AlertBanner._alertInstances = [];
+
 		sandbox = sinon.sandbox.create();
 		stubs.alertBannerGetOptionsFromDom(sandbox);
 		stubs.alertBannerOpen(sandbox);
@@ -25,20 +31,22 @@ describe('.buildCloseButtonElement()', () => {
 
 	});
 
+	afterEach(() => {
+		testArea.innerHTML='';
+		sandbox.restore();
+	});
+
 	describe('is called', () => {
 		let returnValue;
 
 		beforeEach(() => {
 			stubs.alertBannerRender(sandbox);
 
-			// Create a alertBanner
 			let options = {};
 			alertBanner = new AlertBanner(alertBannerElement, options);
 
-			// Restore constructor stubs
 			sandbox.restore();
 
-			// Mock options used to test output HTML
 			alertBanner.options.closeButtonClass = 'mockCloseButtonClass';
 			alertBanner.options.closeButtonLabel = 'mockCloseButtonLabel';
 
@@ -94,6 +102,7 @@ describe('.buildCloseButtonElement()', () => {
 		let alertBanner;
 
 		beforeEach(() => {
+
 			stubs.buildElementAlertBanner(sandbox);
 			sinon.stub(document.body, 'appendChild');
 			sinon.stub(buildElement, 'closeButton').returns(mockCloseButtonElement);
@@ -113,7 +122,6 @@ describe('.buildCloseButtonElement()', () => {
 				let options = { noCloseButton: true };
 				alertBanner = new AlertBanner(alertBannerElement, options);
 
-				// Restore constructor stubs
 				sandbox.restore();
 
 			});
@@ -128,24 +136,12 @@ describe('.buildCloseButtonElement()', () => {
 		});
 
 		describe('declaratively', () => {
-			let testArea;
 
 			beforeEach(() => {
-				document.body.innerHTML += '<div id="test-area"></div>';
-				testArea = document.getElementById('test-area');
-				testArea.innerHTML = fixtures.mainNoCloseButton;
-				AlertBanner._alertInstances = [];
 
-				let alertBannerElement = document.querySelector('[data-n-component="n-alert-banner"]');
 				let options = {};
-
 				alertBanner = new AlertBanner(alertBannerElement, options);
 
-				sandbox.restore();
-			});
-
-			afterEach(() => {
-				testArea.innerHTML = '';
 			});
 
 			it('has buttonClose set to false', () => {
