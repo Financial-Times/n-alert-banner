@@ -54,7 +54,7 @@ This HTML demonstrates the declarative way to instantiate n-alert-banner. Initia
 </div>
 ```
 
-If you do not wish for the user to be able to close the alert banner use `AlertBanner.init(null, { closeButton: false})`.
+If you do not wish for the user to be able to close the alert banner add `data-n-alert-banner-no-close-button=""` to your HTML.
 
 ### Build
 
@@ -85,6 +85,7 @@ const myAlertBanner = new AlertBanner(null, {
     linkUrl: '#feedback-link'
 });
 ```
+If you do not wish for the user to be able to close the alert banner use `noCloseButton: true`.
 
 The [available options](#options) are documented below.
 
@@ -110,7 +111,7 @@ There are several options used to change the appearance or behaviour of n-alert-
   - `linkUrl`: String. The URL the link links to. Defaults to `#`
   - `closeButtonLabel`: String. The hidden accessible label for the close button. Defaults to `Close`.
   - `theme`: String. Themes to apply to the alert banner. [See the themes documentation](#themes) for available values. Defaults to `null`
-	- `closeButton`: Boolean. False prevents close button from being created. Defaults to `true`
+	- `noCloseButton`: Boolean. True prevents close button from being created. Defaults to `false`
 
 ### Sass
 
