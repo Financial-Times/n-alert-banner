@@ -1,9 +1,15 @@
 import buildElement from './lib/build-element';
 import getOptions from './lib/get-options';
-import addAlertBannerUnderNav from './lib/add-alert-banner-under-nav';
+import appendChild from './lib/add-alert-banner-under-nav';
 
+const DEFAULT_ALERT_BANNER_CLASS = 'n-alert-banner'
+const ALERT_BANNER_ATTACH_TO_NAVIGATION = '[data-n-alert-banner-attach-to-navigation="true"]';
+const ALERT_BANNER_INNER_ELEMENT = '[data-n-alert-banner-inner]';
 const NAV_ELEMENT_ID ='#site-navigation';
 const ALERT_BANNER_DATA_COMPONENT = '[data-n-component="n-alert-banner"]';
+const ALERT_BANNER_N_COMPONENT = 'data-n-component';
+const ALERT_BANNER_OPEN = 'n.alertBannerOpened';
+const ALERT_BANNER_CLOSED = 'n.alertBannerClosed';
 /**
  * Represents a alertBanner.
  */
@@ -19,9 +25,9 @@ class AlertBanner {
 		this.alertBannerElement = alertBannerElement;
 
 		// Default the options
-		const alertBannerClass = options && options.alertBannerClass ? options.alertBannerClass : 'n-alert-banner';
+		const alertBannerClass = options && options.alertBannerClass ? options.alertBannerClass : DEFAULT_ALERT_BANNER_CLASS;
 
-		const attachToNavigation = this.alertBannerElement && this.alertBannerElement.querySelector('[data-n-alert-banner-attach-to-navigation="true"]') !== null || options && options.attachToNavigation === true;
+		const attachToNavigation = this.alertBannerElement && this.alertBannerElement.querySelector(ALERT_BANNER_ATTACH_TO_NAVIGATION) !== null || options && options.attachToNavigation === true;
 
 		this.options = Object.assign({}, {
 			autoOpen: true,
@@ -75,22 +81,22 @@ class AlertBanner {
 		// If the alertBanner element is not an HTML Element, build one
 		if (!(this.alertBannerElement instanceof HTMLElement)) {
 			this.alertBannerElement = buildElement.alertBanner(this.options);
-			document.body.appendChild(this.alertBannerElement);
+			appendChild(document.body, this.alertBannerElement);
 		}
 
 		if (this.options.closeButton) {
 			// Select all the elements we need
-			this.innerElement = this.alertBannerElement.querySelector('[data-n-alert-banner-inner]');
+			this.innerElement = this.alertBannerElement.querySelector(ALERT_BANNER_INNER_ELEMENT);
 			// Build the close button
 			this.closeButtonElement = buildElement.closeButton(this);
-			this.innerElement.appendChild(this.closeButtonElement);
+			appendChild(this.innerElement, this.closeButtonElement);
 		}
 
-		// Attach alert banner below navigation header.
+		// Attach alert banner below FT navigation header.
 		if (this.options.attachToNavigation) {
 			const navHeader = document.querySelector(NAV_ELEMENT_ID);
 			const alertBannerDataComponent = document.querySelector(ALERT_BANNER_DATA_COMPONENT);
-			addAlertBannerUnderNav(navHeader, alertBannerDataComponent);
+			appendChild(navHeader, alertBannerDataComponent);
 		}
 
 	}
@@ -100,7 +106,7 @@ class AlertBanner {
 	 */
 	open () {
 		this.alertBannerElement.classList.remove(this.options.alertBannerClosedClass);
-		this.alertBannerElement.dispatchEvent(new CustomEvent('n.alertBannerOpened'));
+		this.alertBannerElement.dispatchEvent(new CustomEvent(ALERT_BANNER_OPEN));
 	}
 
 	/**
@@ -108,7 +114,7 @@ class AlertBanner {
 	 */
 	close () {
 		this.alertBannerElement.classList.add(this.options.alertBannerClosedClass);
-		this.alertBannerElement.dispatchEvent(new CustomEvent('n.alertBannerClosed'));
+		this.alertBannerElement.dispatchEvent(new CustomEvent(ALERT_BANNER_CLOSED));
 	}
 
 	/**
@@ -129,12 +135,12 @@ class AlertBanner {
 
 		// If the rootElement is an HTMLElement (ie it was found in the document anywhere)
 		// AND the rootElement has the data-n-component=n-alert-banner then initialise just 1 alertBanner (this one)
-		if (rootElement instanceof HTMLElement && /\balert\b/.test(rootElement.getAttribute('data-n-component'))) {
+		if (rootElement instanceof HTMLElement && /\balert\b/.test(rootElement.getAttribute(ALERT_BANNER_N_COMPONENT))) {
 			return new AlertBanner(rootElement, options);
 		}
 
 		// If the rootElement wasn't itself a alertBanner, then find ALL of the child things that have the data-n-component=n-alert-banner set
-		return Array.from(rootElement.querySelectorAll('[data-n-component="n-alert-banner"]'), alertBannerElement => new AlertBanner(alertBannerElement, options));
+		return Array.from(rootElement.querySelectorAll(ALERT_BANNER_DATA_COMPONENT), alertBannerElement => new AlertBanner(alertBannerElement, options));
 	}
 
 }
