@@ -72,9 +72,10 @@ class AlertBanner {
 			document.body.appendChild(this.alertBannerElement);
 		}
 
+		// Select all the elements we need
+		this.innerElement = this.alertBannerElement.querySelector('[data-n-alert-banner-inner]');
+
 		if (!this.options.noCloseButton) {
-			// Select all the elements we need
-			this.innerElement = this.alertBannerElement.querySelector('[data-n-alert-banner-inner]');
 			// Build the close button
 			this.closeButtonElement = buildElement.closeButton(this);
 			this.innerElement.appendChild(this.closeButtonElement);
