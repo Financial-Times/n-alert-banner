@@ -2,8 +2,7 @@ import buildElement from './lib/build-element';
 import getOptions from './lib/get-options';
 import appendChild from './lib/append-child';
 
-const DEFAULT_ALERT_BANNER_CLASS = 'n-alert-banner'
-const ALERT_BANNER_ATTACH_TO_NAVIGATION = '[data-n-alert-banner-attach-to-navigation="true"]';
+const DEFAULT_ALERT_BANNER_CLASS = 'n-alert-banner';
 const ALERT_BANNER_INNER_ELEMENT = '[data-n-alert-banner-inner]';
 const NAV_ELEMENT_ID ='#site-navigation';
 const ALERT_BANNER_DATA_COMPONENT = '[data-n-component="n-alert-banner"]';
@@ -26,8 +25,7 @@ class AlertBanner {
 
 		// Default the options
 		const alertBannerClass = options && options.alertBannerClass ? options.alertBannerClass : DEFAULT_ALERT_BANNER_CLASS;
-
-		const attachToNavigation = this.alertBannerElement && this.alertBannerElement.querySelector(ALERT_BANNER_ATTACH_TO_NAVIGATION) !== null || options && options.attachToNavigation === true;
+		const noCloseButton = this.alertBannerElement && this.alertBannerElement.querySelector('[data-n-alert-banner-close-button="false"]') !== null || options && options.noCloseButton === true;
 
 		this.options = Object.assign({}, {
 			autoOpen: true,
@@ -54,8 +52,9 @@ class AlertBanner {
 			linkLabel: null,
 			linkUrl: '#',
 			closeButtonLabel: 'Close',
-			closeButton: true,
-			attachToNavigation: attachToNavigation || false,
+			noCloseButton: noCloseButton || false,
+			attachToNavigation: false,
+
 
 			theme: null
 
@@ -84,9 +83,10 @@ class AlertBanner {
 			appendChild(document.body, this.alertBannerElement);
 		}
 
-		if (this.options.closeButton) {
-			// Select all the elements we need
-			this.innerElement = this.alertBannerElement.querySelector(ALERT_BANNER_INNER_ELEMENT);
+		// Select all the elements we need
+		this.innerElement = this.alertBannerElement.querySelector(ALERT_BANNER_INNER_ELEMENT);
+
+		if (!this.options.noCloseButton) {
 			// Build the close button
 			this.closeButtonElement = buildElement.closeButton(this);
 			appendChild(this.innerElement, this.closeButtonElement);

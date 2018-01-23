@@ -83,8 +83,9 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 			linkLabel: null,
 			linkUrl: '#',
 			closeButtonLabel: 'Close',
-			closeButton: true,
+			noCloseButton: false,
 			attachToNavigation: false,
+
 			theme: null
 		});
 	});

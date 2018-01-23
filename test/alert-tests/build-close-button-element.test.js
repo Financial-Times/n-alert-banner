@@ -14,8 +14,14 @@ describe('.buildCloseButtonElement()', () => {
 	let alertBannerElement;
 	let alertBanner;
 	let sandbox;
+	let testArea;
 
 	beforeEach(() => {
+		document.body.innerHTML += '<div id="test-area"></div>';
+		testArea = document.getElementById('test-area');
+		testArea.innerHTML = fixtures.mainNoCloseButton;
+		AlertBanner._alertInstances = [];
+
 		sandbox = sinon.sandbox.create();
 		stubs.alertBannerGetOptionsFromDom(sandbox);
 		stubs.alertBannerOpen(sandbox);
@@ -25,6 +31,10 @@ describe('.buildCloseButtonElement()', () => {
 
 	});
 
+	afterEach(() => {
+		testArea.innerHTML='';
+		sandbox.restore();
+	});
 
 	describe('is called', () => {
 		let returnValue;
@@ -32,14 +42,11 @@ describe('.buildCloseButtonElement()', () => {
 		beforeEach(() => {
 			stubs.alertBannerRender(sandbox);
 
-			// Create a alertBanner
 			let options = {};
 			alertBanner = new AlertBanner(alertBannerElement, options);
 
-			// Restore constructor stubs
 			sandbox.restore();
 
-			// Mock options used to test output HTML
 			alertBanner.options.closeButtonClass = 'mockCloseButtonClass';
 			alertBanner.options.closeButtonLabel = 'mockCloseButtonLabel';
 
@@ -96,31 +103,54 @@ describe('.buildCloseButtonElement()', () => {
 
 		beforeEach(() => {
 
-			mockCloseButtonElement = document.createElement('a');
-
 			stubs.buildElementAlertBanner(sandbox);
 			sinon.stub(document.body, 'appendChild');
 			sinon.stub(buildElement, 'closeButton').returns(mockCloseButtonElement);
-
-			let options = { closeButton: false };
-			alertBanner = new AlertBanner(alertBannerElement, options);
-
-			// Restore constructor stubs
-			sandbox.restore();
-
 		});
 
 		afterEach(() => {
-			document.body.appendChild.restore();
 			buildElement.closeButton.restore();
+			document.body.appendChild.restore();
 		});
 
-		it('has buttonClose set to false', () => {
-			assert.notCalled(buildElement.closeButton);
+		describe('imperatively', () => {
+
+			beforeEach(() => {
+
+				mockCloseButtonElement = document.createElement('a');
+
+				let options = { noCloseButton: true };
+				alertBanner = new AlertBanner(alertBannerElement, options);
+
+				sandbox.restore();
+
+			});
+
+			it('has buttonClose set to false', () => {
+				assert.notCalled(buildElement.closeButton);
+			});
+
+			it('therefore does not construct the element HTML based on the given options', () => {
+				assert.notEqual(alertBanner.innerElement, fixtures.closeButtonElement);
+			});
 		});
 
-		it('therefore does not construct the element HTML based on the given options', () => {
-			assert.notEqual(alertBanner.innerElement, fixtures.closeButtonElement);
+		describe('declaratively', () => {
+
+			beforeEach(() => {
+
+				let options = {};
+				alertBanner = new AlertBanner(alertBannerElement, options);
+
+			});
+
+			it('has buttonClose set to false', () => {
+				assert.notCalled(buildElement.closeButton);
+			});
+
+			it('does not have a close button in the HTML', () => {
+				assert.notEqual(createOneLineString(fixtures.mainWithCloseButton), createOneLineString(fixtures.mainNoCloseButton));
+			});
 		});
 	});
 });
