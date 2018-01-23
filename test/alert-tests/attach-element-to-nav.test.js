@@ -43,7 +43,6 @@ describe('attach alertBannerElement to navigation', () => {
 		sinon.stub(alertBannerElement, 'querySelector').returns(mockAlertInnerElement);
 		sinon.stub(mockAlertElement, 'querySelector').returns(mockAlertInnerElement);
 
-
 	});
 
 	afterEach(() => {
