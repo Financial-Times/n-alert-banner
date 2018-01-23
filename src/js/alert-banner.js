@@ -1,6 +1,6 @@
 import buildElement from './lib/build-element';
 import getOptions from './lib/get-options';
-import appendChild from './lib/add-alert-banner-under-nav';
+import appendChild from './lib/append-child';
 
 const DEFAULT_ALERT_BANNER_CLASS = 'n-alert-banner'
 const ALERT_BANNER_ATTACH_TO_NAVIGATION = '[data-n-alert-banner-attach-to-navigation="true"]';
