@@ -55,7 +55,6 @@ class AlertBanner {
 			noCloseButton: noCloseButton || false,
 			attachToNavigation: false,
 
-
 			theme: null
 
 		}, options || getOptions.fromDom(alertBannerElement));
