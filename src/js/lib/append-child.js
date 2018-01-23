@@ -1,3 +1,8 @@
 export default function appendChild (parent, element) {
-	return parent.appendChild(element);
+	try {
+		parent.appendChild(element);
+	}
+	catch (err) {
+		console.warn(err);
+	}
 }
