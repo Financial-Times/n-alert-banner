@@ -11,54 +11,148 @@ sinon.assert.expose(assert, {
 	prefix: ''
 });
 
-describe('attach alertBannerElement to navigation', () => {
-	let testNav;
-	let testArea;
+describe('alertBannerElement position', () => {
 	let sandbox;
 	let alertBanner;
 	let alertBannerElement;
 
+
+	const mockAlertElement = document.createElement('div');
+	const mockAlertInnerElement = document.createElement('div');
+
 	beforeEach(() => {
-		document.body.innerHTML += '<div id="site-navigation"></div>';
-		document.body.innerHTML += '<div id="test-area"></div>';
-		testNav = document.getElementById('site-navigation');
-		testArea = document.getElementById('test-area');
-		testArea.innerHTML = fixtures.attachToNavMain;
-
-		AlertBanner._alertInstances = [];
-
 		sandbox = sinon.sandbox.create();
 		stubs.alertBannerOpen(sandbox);
 		stubs.alertBannerClose(sandbox);
 		stubs.buildElementAlertBanner(sandbox);
-
-		alertBannerElement = document.querySelector('[data-n-component="n-alert-banner"]');
-		let options = null;
-		alertBanner = new AlertBanner(alertBannerElement, options);
-
-		let mockAlertElement = document.createElement('div');
-		let mockAlertInnerElement = document.createElement('div');
-
-		sinon.stub(buildElement, 'closeButton').returns(fixtures.mockCloseButtonElement);
-		sinon.stub(alertBannerElement, 'querySelector').returns(mockAlertInnerElement);
-		sinon.stub(mockAlertElement, 'querySelector').returns(mockAlertInnerElement);
-
 	});
 
 	afterEach(() => {
-		testNav.remove();
-		testArea.remove();
-		buildElement.closeButton.restore();
-		alertBannerElement.querySelector.restore();
+		document.body.innerHTML = '';
 		sandbox.restore();
 	});
 
-	it('has attachToNavigation set to false', () => {
-		assert.deepEqual(alertBanner.options.attachToNavigation, true);
+	describe('site-navigation id on page', () => {
+		let testNav;
+		let testArea;
+
+		beforeEach(() => {
+			document.body.innerHTML += '<div id="site-navigation"></div>';
+			document.body.innerHTML += '<div id="test-area"></div>';
+			testNav = document.getElementById('site-navigation');
+			testArea = document.getElementById('test-area');
+		});
+
+		afterEach(() => {
+			testNav.remove();
+			testArea.remove();
+		});
+
+		describe('not specified', () => {
+			beforeEach(() => {
+				testArea.innerHTML = fixtures.main;
+
+				AlertBanner._alertInstances = [];
+
+				alertBannerElement = document.querySelector('[data-n-component="n-alert-banner"]');
+				let options = null;
+				alertBanner = new AlertBanner(alertBannerElement, options);
+
+				sinon.stub(buildElement, 'closeButton').returns(fixtures.mockCloseButtonElement);
+				sinon.stub(alertBannerElement, 'querySelector').returns(mockAlertInnerElement);
+				sinon.stub(mockAlertElement, 'querySelector').returns(mockAlertInnerElement);
+			});
+
+			afterEach(() => {
+				buildElement.closeButton.restore();
+				alertBannerElement.querySelector.restore();
+				mockAlertElement.querySelector.restore();
+			});
+
+			it('has attachToNavigation set to false', () => {
+				assert.deepEqual(alertBanner.options.attachToNavigation, false);
+			});
+
+			it('defaults to template location', () => {
+				const result = document.getElementById('site-navigation');
+				assert.strictEqual(createOneLineString(result.outerHTML), createOneLineString(fixtures.siteNavigation));
+			});
+		});
+
+		describe('attach to navigation', () => {
+
+			beforeEach(() => {
+				testArea.innerHTML = fixtures.attachToNavMain;
+
+				AlertBanner._alertInstances = [];
+
+				alertBannerElement = document.querySelector('[data-n-component="n-alert-banner"]');
+				let options = null;
+				alertBanner = new AlertBanner(alertBannerElement, options);
+
+				sinon.stub(buildElement, 'closeButton').returns(fixtures.mockCloseButtonElement);
+				sinon.stub(alertBannerElement, 'querySelector').returns(mockAlertInnerElement);
+				sinon.stub(mockAlertElement, 'querySelector').returns(mockAlertInnerElement);
+
+			});
+
+			afterEach(() => {
+				buildElement.closeButton.restore();
+				alertBannerElement.querySelector.restore();
+				mockAlertElement.querySelector.restore();
+			});
+
+			it('has attachToNavigation set to true', () => {
+				assert.deepEqual(alertBanner.options.attachToNavigation, true);
+			});
+
+			it('when there is a data-n-alert-banner-attach-to-navigation="true" selector in the html', () => {
+				const result = document.getElementById('site-navigation');
+				assert.strictEqual(createOneLineString(result.outerHTML), createOneLineString(fixtures.navParentElementOfAlertBanner));
+			});
+		});
+
 	});
 
-	it('when there is a data-n-alert-banner-attach-to-navigation="true" selector in the html', () => {
-		const result = document.getElementById('site-navigation');
-		assert.strictEqual(createOneLineString(result.outerHTML), createOneLineString(fixtures.NavParentElementOfAlertBanner));
+	describe('NO site-navigation id on page', () => {
+		let testTitle;
+		let testArea;
+
+		beforeEach(() => {
+			document.body.innerHTML += '<div id="title">FT TITLE</div>';
+			document.body.innerHTML += '<div id="test-area"></div>';
+			testTitle = document.getElementById('title');
+			testArea = document.getElementById('test-area');
+			testArea.innerHTML = fixtures.attachToNavMain;
+
+			AlertBanner._alertInstances = [];
+
+			alertBannerElement = document.querySelector('[data-n-component="n-alert-banner"]');
+			let options = null;
+			alertBanner = new AlertBanner(alertBannerElement, options);
+
+			sinon.stub(buildElement, 'closeButton').returns(fixtures.mockCloseButtonElement);
+			sinon.stub(alertBannerElement, 'querySelector').returns(mockAlertInnerElement);
+			sinon.stub(mockAlertElement, 'querySelector').returns(mockAlertInnerElement);
+		});
+
+		afterEach(() => {
+			testTitle.remove();
+			testArea.remove();
+			sandbox.restore();
+			buildElement.closeButton.restore();
+			alertBannerElement.querySelector.restore();
+			mockAlertElement.querySelector.restore();
+		});
+
+		it('has attachToNavigation set to true', () => {
+			assert.deepEqual(alertBanner.options.attachToNavigation, true);
+		});
+
+		it('top of body', () => {
+			assert.strictEqual(createOneLineString(document.body.firstChild.outerHTML), createOneLineString(fixtures.attachToNavMain));
+		});
+
 	});
+
 });
