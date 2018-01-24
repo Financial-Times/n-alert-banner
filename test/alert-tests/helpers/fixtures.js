@@ -43,7 +43,7 @@ export const attachToNavMain = `
 
 `;
 
-export const NavParentElementOfAlertBanner = `
+export const navParentElementOfAlertBanner = `
 
 <div id="site-navigation">
 	<div class="n-alert-banner" data-n-component="n-alert-banner" data-n-alert-banner-attach-to-navigation="true">
@@ -179,7 +179,7 @@ export const noLink = `
 </div>
 `;
 
-export const noButton = `
+export const noButtonLazyLoad = `
 <div class="mockAlertClass mockAlertClass--mock-theme" data-n-component="n-alert-banner">
 	<div class="mockOuterClass">
 		<div class="mockInnerClass" data-n-alert-banner-inner="">
@@ -223,57 +223,7 @@ export const mockTheme = `
 </div>
 `;
 
-export const navHeaderAndAlertBannerElement = `
-<header id="site-navigation" class="o-header" data-o-component="o-header" tabindex="-1" data-o-header--js="">FT NAV HEADER</header>
-
-<div class="n-alert-banner" data-n-component="n-alert-banner">
-	<div class="n-alert-banner__inner" data-n-alert-banner-inner="">
-		<div class="n-alert-banner__content n-alert-banner__content--long">
-			long content
-		</div>
-		<div class="n-alert-banner__content n-alert-banner__content--short">
-			short content
-		</div>
-		<div class="n-alert-banner__actions">
-			<div class="n-alert-banner__action">
-				<a href="#" class="n-alert-banner__button">button label</a>
-			</div>
-			<div class="n-alert-banner__action n-alert-banner__action--secondary">
-				<a href="#" class="n-alert-banner__link">link label</a>
-			</div>
-		</div>
-	</div>
-</div>
-
-`;
-
-export const navHeaderWithAlertBannerElement = `
-<header id="site-navigation" class="o-header" data-o-component="o-header" tabindex="-1" data-o-header--js="">
-
-<div class="n-alert-banner" data-n-component="n-alert-banner">
-	<div class="n-alert-banner__inner" data-n-alert-banner-inner="">
-		<div class="n-alert-banner__content n-alert-banner__content--long">
-			long content
-		</div>
-		<div class="n-alert-banner__content n-alert-banner__content--short">
-			short content
-		</div>
-		<div class="n-alert-banner__actions">
-			<div class="n-alert-banner__action">
-				<a href="#" class="n-alert-banner__button">button label</a>
-			</div>
-			<div class="n-alert-banner__action n-alert-banner__action--secondary">
-				<a href="#" class="n-alert-banner__link">link label</a>
-			</div>
-		</div>
-	</div>
-</div>
-
-</header>
-`;
-
-
-
+export const siteNavigation = '<div id="site-navigation"></div>';
 
 export const closeButtonElement = '<a class="n-alert-banner__close" role="button" href="#void" aria-label="Close" title="Close"></a>';
 
