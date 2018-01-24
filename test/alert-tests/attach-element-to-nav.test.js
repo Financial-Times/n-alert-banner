@@ -32,7 +32,7 @@ describe('alertBannerElement position', () => {
 		sandbox.restore();
 	});
 
-	describe('site-navigation id on page', () => {
+	describe('specified id found on page', () => {
 		let testNav;
 		let testArea;
 
@@ -69,8 +69,8 @@ describe('alertBannerElement position', () => {
 				mockAlertElement.querySelector.restore();
 			});
 
-			it('has attachToNavigation set to false', () => {
-				assert.deepEqual(alertBanner.options.attachToNavigation, false);
+			it('has attachToElement set to false', () => {
+				assert.deepEqual(alertBanner.options.attachToElement, false);
 			});
 
 			it('defaults to template location', () => {
@@ -102,11 +102,11 @@ describe('alertBannerElement position', () => {
 				mockAlertElement.querySelector.restore();
 			});
 
-			it('has attachToNavigation set to true', () => {
-				assert.deepEqual(alertBanner.options.attachToNavigation, true);
+			it('has attachToElement set to chosen id', () => {
+				assert.deepEqual(alertBanner.options.attachToElement, '#site-navigation');
 			});
 
-			it('when there is a data-n-alert-banner-attach-to-navigation="true" selector in the html', () => {
+			it('when there is a data-n-alert-banner-attach-to-navigation="choosenID" selector in the html', () => {
 				const result = document.getElementById('site-navigation');
 				assert.strictEqual(createOneLineString(result.outerHTML), createOneLineString(fixtures.navParentElementOfAlertBanner));
 			});
@@ -145,8 +145,8 @@ describe('alertBannerElement position', () => {
 			mockAlertElement.querySelector.restore();
 		});
 
-		it('has attachToNavigation set to true', () => {
-			assert.deepEqual(alertBanner.options.attachToNavigation, true);
+		it('has attachToElement set to choosen id', () => {
+			assert.deepEqual(alertBanner.options.attachToElement, '#site-navigation');
 		});
 
 		it('top of body', () => {
