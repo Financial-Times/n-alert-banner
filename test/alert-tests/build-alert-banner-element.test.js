@@ -84,7 +84,7 @@ describe('buildElement.alertBanner()', () => {
 		});
 
 		it('does not include a button', () => {
-			assert.strictEqual(createOneLineString(returnValue.outerHTML), createOneLineString(fixtures.noButton));
+			assert.strictEqual(createOneLineString(returnValue.outerHTML), createOneLineString(fixtures.noButtonLazyLoad));
 		});
 
 	});
