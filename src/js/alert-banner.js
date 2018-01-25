@@ -18,7 +18,7 @@ class AlertBanner {
 
 		// Default the options
 		const alertBannerClass = options && options.alertBannerClass ? options.alertBannerClass : constants.DEFAULT_ALERT_BANNER_CLASS;
-		const noCloseButton = this.alertBannerElement && this.alertBannerElement.querySelector('[data-n-alert-banner-close-button="false"]') !== null || options && options.noCloseButton === true;
+		const noCloseButton = this.alertBannerElement && this.alertBannerElement.querySelector(constants.NO_CLOSE_BUTTON) !== null || options && options.noCloseButton === true;
 
 		this.options = Object.assign({}, {
 			autoOpen: true,
@@ -72,8 +72,11 @@ class AlertBanner {
 		// If the alertBanner element is not an HTML Element, build one
 		if (!(this.alertBannerElement instanceof HTMLElement)) {
 			this.alertBannerElement = buildElement.alertBanner(this.options);
-			appendChild(document.body, this.alertBannerElement);
 		}
+
+		// attach alertBanner to #site-navigation or default to document body
+		let parentElement = this.options.attachToNavigation ? document.querySelector(constants.NAV_ELEMENT_ID) : document.body;
+		appendChild(parentElement, this.alertBannerElement);
 
 		// Select all the elements we need
 		this.innerElement = this.alertBannerElement.querySelector(constants.ALERT_BANNER_INNER_ELEMENT);
@@ -82,13 +85,6 @@ class AlertBanner {
 			// Build the close button
 			this.closeButtonElement = buildElement.closeButton(this);
 			appendChild(this.innerElement, this.closeButtonElement);
-		}
-
-		// Attach alert banner below FT navigation header.
-		if (this.options.attachToNavigation) {
-			const navHeader = document.querySelector(constants.NAV_ELEMENT_ID);
-			const alertBannerDataComponent = document.querySelector(constants.ALERT_BANNER_DATA_COMPONENT);
-			appendChild(navHeader, alertBannerDataComponent);
 		}
 
 	}

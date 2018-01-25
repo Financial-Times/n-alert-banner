@@ -32,7 +32,7 @@ describe('alertBannerElement position', () => {
 		sandbox.restore();
 	});
 
-	describe('site-navigation id on page', () => {
+	describe('attach to navigation', () => {
 		let testNav;
 		let testArea;
 
@@ -69,7 +69,7 @@ describe('alertBannerElement position', () => {
 				mockAlertElement.querySelector.restore();
 			});
 
-			it('has attachToNavigation set to false', () => {
+			it('has attachToNavigation set to default of false', () => {
 				assert.deepEqual(alertBanner.options.attachToNavigation, false);
 			});
 
@@ -79,7 +79,7 @@ describe('alertBannerElement position', () => {
 			});
 		});
 
-		describe('attach to navigation', () => {
+		describe('selected', () => {
 
 			beforeEach(() => {
 				testArea.innerHTML = fixtures.attachToNavMain;
