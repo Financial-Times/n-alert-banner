@@ -84,7 +84,7 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 			linkUrl: '#',
 			closeButtonLabel: 'Close',
 			noCloseButton: false,
-			attachToElement: false,
+			selectedParentElement: false,
 
 			theme: null
 		});
