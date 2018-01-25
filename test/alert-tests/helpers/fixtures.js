@@ -22,7 +22,7 @@ export const main = `
 `;
 
 export const attachToNavMain = `
-<div class="n-alert-banner" data-n-component="n-alert-banner" data-n-alert-banner-selected-parent-element="#site-navigation">
+<div class="n-alert-banner" data-n-component="n-alert-banner" data-n-alert-banner-append-to-element="#site-navigation">
 	<div class="n-alert-banner__inner" data-n-alert-banner-inner="" data-n-alert-banner-close-button="false">
 		<div class="n-alert-banner__content n-alert-banner__content--long">
 			long content
@@ -46,7 +46,7 @@ export const attachToNavMain = `
 export const navParentElementOfAlertBanner = `
 
 <div id="site-navigation">
-	<div class="n-alert-banner" data-n-component="n-alert-banner" data-n-alert-banner-selected-parent-element="#site-navigation">
+	<div class="n-alert-banner" data-n-component="n-alert-banner" data-n-alert-banner-append-to-element="#site-navigation">
 		<div class="n-alert-banner__inner" data-n-alert-banner-inner="" data-n-alert-banner-close-button="false">
 			<div class="n-alert-banner__content n-alert-banner__content--long">
 				long content

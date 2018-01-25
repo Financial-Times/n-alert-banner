@@ -46,7 +46,7 @@ class AlertBanner {
 			linkUrl: '#',
 			closeButtonLabel: 'Close',
 			noCloseButton: noCloseButton || false,
-			selectedParentElement: false,
+			appendToElement: false,
 
 			theme: null
 
@@ -75,7 +75,7 @@ class AlertBanner {
 		}
 
 		// attach alertBanner to specified parentElement or default to document body
-		let parentElement = this.options.selectedParentElement ? document.querySelector(this.options.selectedParentElement) : document.body;
+		let parentElement = this.options.appendToElement ? document.querySelector(this.options.appendToElement) : document.body;
 		appendChild(parentElement, this.alertBannerElement);
 
 		// Select all the elements we need

@@ -69,8 +69,8 @@ describe('alertBannerElement position', () => {
 				mockAlertElement.querySelector.restore();
 			});
 
-			it('has selectedParentElement set to false', () => {
-				assert.deepEqual(alertBanner.options.selectedParentElement, false);
+			it('has appendToElement set to false', () => {
+				assert.deepEqual(alertBanner.options.appendToElement, false);
 			});
 
 			it('defaults to template location', () => {
@@ -102,8 +102,8 @@ describe('alertBannerElement position', () => {
 				mockAlertElement.querySelector.restore();
 			});
 
-			it('has selectedParentElement set to chosen id', () => {
-				assert.deepEqual(alertBanner.options.selectedParentElement, '#site-navigation');
+			it('has appendToElement set to chosen id', () => {
+				assert.deepEqual(alertBanner.options.appendToElement, '#site-navigation');
 			});
 
 			it('when there is a data-n-alert-banner-attach-to-navigation="choosenID" selector in the html', () => {
@@ -145,8 +145,8 @@ describe('alertBannerElement position', () => {
 			mockAlertElement.querySelector.restore();
 		});
 
-		it('has selectedParentElement set to choosen id', () => {
-			assert.deepEqual(alertBanner.options.selectedParentElement, '#site-navigation');
+		it('has appendToElement set to choosen id', () => {
+			assert.deepEqual(alertBanner.options.appendToElement, '#site-navigation');
 		});
 
 		it('top of body', () => {
