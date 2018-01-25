@@ -10,7 +10,7 @@ sinon.assert.expose(assert, {
 	prefix: ''
 });
 
-describe('.buildCloseButtonElement()', () => {
+describe.only('.buildCloseButtonElement()', () => {
 	let alertBannerElement;
 	let alertBanner;
 	let sandbox;
@@ -119,14 +119,14 @@ describe('.buildCloseButtonElement()', () => {
 
 				mockCloseButtonElement = document.createElement('a');
 
-				let options = { noCloseButton: true };
+				let options = { closeButton: false };
 				alertBanner = new AlertBanner(alertBannerElement, options);
 
 				sandbox.restore();
 
 			});
 
-			it('has buttonClose set to false', () => {
+			it('has closeButton set to false', () => {
 				assert.notCalled(buildElement.closeButton);
 			});
 
@@ -139,12 +139,12 @@ describe('.buildCloseButtonElement()', () => {
 
 			beforeEach(() => {
 
-				let options = {};
+				let options = { closeButton: false };
 				alertBanner = new AlertBanner(alertBannerElement, options);
 
 			});
 
-			it('has buttonClose set to false', () => {
+			it('has closeButton set to false', () => {
 				assert.notCalled(buildElement.closeButton);
 			});
 
