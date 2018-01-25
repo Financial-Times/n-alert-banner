@@ -55,9 +55,8 @@ This HTML demonstrates the declarative way to instantiate n-alert-banner. Initia
 ```
 #### Additional optional data components
 
-  - `data-n-alert-banner-selected-parent-element="#site-navigation"`: allows for stipulation of where the alertBanner is to be inserted on the page. Default is on document body. Must include attribute type (i.e. `#`, `.`, etc)
-  - `data-n-alert-banner-close-button="false"`: prevents close button for being build.
-
+  - `data-n-alert-banner-selected-parent-element="#site-navigation"`: allows for stipulation of where the alertBanner is to be inserted on the page. Default is document body. Must include attribute type (i.e. `#`, `.`, etc)
+  - `data-n-alert-banner-close-button="false"`: prevents close button from being built.
 
 ### Build
 
