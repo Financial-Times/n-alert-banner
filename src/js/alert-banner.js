@@ -1,8 +1,8 @@
 import buildElement from './lib/build-element';
 import getOptions from './lib/get-options';
-import appendChild from './lib/append-child';
-import * as constants from './constants';
 import positionAlertBanner from './lib/position-alert-banner';
+import * as constants from './constants';
+import positionOptions from './lib/position-options';
 /**
  * Represents a alertBanner.
  */
@@ -76,22 +76,23 @@ class AlertBanner {
 			this.alertBannerElement = buildElement.alertBanner(this.options);
 		}
 
-		let positionOfAlertBanner;
-		let parentElementAttributeValue;
+		// get position append/prepend option requested and get selected element identifier
+		let attachToElement = this.options.selectedPrependElement
+			? { position: positionOptions.prepend, elementSelected: this.options.selectedPrependElement}
+			: { position: positionOptions.appendChild, elementSelected: this.options.selectedAppendElement};
 
-		if (this.options.selectedAppendElement) {
-			positionOfAlertBanner = positionAlertBanner.appendChild;
-			parentElementAttributeValue = this.options.selectedAppendElement
-		} else if (this.options.selectedPrependElement) {
-			positionOfAlertBanner = positionAlertBanner.prepend;
-			parentElementAttributeValue = this.options.selectedPrependElement
-		} else {
-			positionOfAlertBanner = positionAlertBanner.appendChild;
-		}
+		// get elemnt or default to document.body
+		let elementSelected = attachToElement.elementSelected
+			? document.querySelector(attachToElement.elementSelected)
+			: document.body;
 
-		// attach alertBanner to specified parentElement or default to document body
-		let parentElement = parentElementAttributeValue ? document.querySelector(parentElementAttributeValue) : document.body;
-		appendChild(parentElement, this.alertBannerElement, positionOfAlertBanner);
+		// replace selected element identifier with actual element
+		Object.assign(attachToElement, attachToElement, {
+			elementSelected
+		});
+
+		// attach alertBannerElement to specified element using specified position option or attach to document.body using appendChild
+		positionAlertBanner(attachToElement, this.alertBannerElement);
 
 		// Select all the elements we need
 		this.innerElement = this.alertBannerElement.querySelector(constants.ALERT_BANNER_INNER_ELEMENT);
@@ -99,7 +100,7 @@ class AlertBanner {
 		if (!this.options.noCloseButton) {
 			// Build the close button
 			this.closeButtonElement = buildElement.closeButton(this);
-			appendChild(this.innerElement, this.closeButtonElement, positionAlertBanner.appendChild);
+			positionAlertBanner({ position: positionOptions.appendChild, elementSelected: this.innerElement }, this.closeButtonElement);
 		}
 
 	}
