@@ -55,7 +55,7 @@ This HTML demonstrates the declarative way to instantiate n-alert-banner. Initia
 ```
 #### Additional optional data components
 
-  - `data-n-alert-banner-append-to-element="#site-navigation"`: allows for stipulation of where the alertBanner is to be inserted on the page. Default is document body. Must include attribute type (i.e. `#`, `.`, etc)
+  - `data-n-alert-banner-append-to-element="#site-navigation"`: allows for stipulation of where the alertBanner is to be inserted on the page. Default is document body.
   - `data-n-alert-banner-close-button="false"`: prevents close button from being built.
 
 ### Build
@@ -111,8 +111,8 @@ There are several options used to change the appearance or behaviour of n-alert-
   - `linkUrl`: String. The URL the link links to. Defaults to `#`
   - `closeButtonLabel`: String. The hidden accessible label for the close button. Defaults to `Close`
   - `theme`: String. Themes to apply to the alert banner. [See the themes documentation](#themes) for available values. Defaults to `null`
-  - `noCloseButton`: Boolean. True prevents close button from being created. Defaults to `false`
-  - `appendToElement`: String. Allows for stipulation of where the alertBanner is to be inserted on the page. Default is on the document body. Must include attribute type (i.e. `#`, `.`, etc). If parent element is not found it will default to the top of the body.
+  - `closeButton`: Boolean. False prevents close button from being created. Defaults to `true`
+  - `appendToElement`: String. Allows for stipulation of where the alertBanner is to be inserted on the page. Default is on the document body. If parent element is not found it will default to the top of the body.
 
 ### Sass
 
