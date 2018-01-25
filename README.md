@@ -87,8 +87,6 @@ const myAlertBanner = new AlertBanner(null, {
     linkUrl: '#feedback-link'
 });
 ```
-If you do not wish for the user to be able to close the alert banner use `noCloseButton: true`.
-
 The [available options](#options) are documented below.
 
 #### Manipulating an n-alert-banner
@@ -114,7 +112,7 @@ There are several options used to change the appearance or behaviour of n-alert-
   - `closeButtonLabel`: String. The hidden accessible label for the close button. Defaults to `Close`
   - `theme`: String. Themes to apply to the alert banner. [See the themes documentation](#themes) for available values. Defaults to `null`
   - `noCloseButton`: Boolean. True prevents close button from being created. Defaults to `false`
-	- `selectedParentElement`: String. Allows for stipulation of where the alertBanner is to be inserted on the page. Default is on the document body. Must include attribute type (i.e. `#`, `.`, etc). If parent element is not found it will default to the top of the body.
+  - `selectedParentElement`: String. Allows for stipulation of where the alertBanner is to be inserted on the page. Default is on the document body. Must include attribute type (i.e. `#`, `.`, etc). If parent element is not found it will default to the top of the body.
 
 ### Sass
 
