@@ -55,7 +55,7 @@ This HTML demonstrates the declarative way to instantiate n-alert-banner. Initia
 ```
 #### Additional optional data components
 
-  - `data-n-alert-banner-attach-to-navigation="true"`: Allows for alertBanner to be attached to the FT navigation. Default is on document body.
+  - `data-n-alert-banner-attach-to-navigation="true"`: Allows for alertBanner to be attached to the FT navigation. Default is document body.
   - `data-n-alert-banner-close-button="false"`: Prevents close button from being built.
 
 
@@ -88,7 +88,6 @@ const myAlertBanner = new AlertBanner(null, {
     linkUrl: '#feedback-link'
 });
 ```
-If you do not wish for the user to be able to close the alert banner use `noCloseButton: true`.
 
 The [available options](#options) are documented below.
 
@@ -115,7 +114,7 @@ There are several options used to change the appearance or behaviour of n-alert-
   - `closeButtonLabel`: String. The hidden accessible label for the close button. Defaults to `Close`
   - `theme`: String. Themes to apply to the alert banner. [See the themes documentation](#themes) for available values. Defaults to `null`
   - `noCloseButton`: Boolean. True prevents close button from being created. Defaults to `false`
-	- `attachToNavigation`: Boolean. Allows for alertBanner to be attached to the FT navigation. Default is on document body. If set to true and `site-navigation` id is not found, it will default to the top of the body.
+  - `attachToNavigation`: Boolean. Allows for alertBanner to be attached to the FT navigation. Default is on document body. If set to true and `site-navigation` id is not found, it will default to the top of the body.
 
 ### Sass
 
