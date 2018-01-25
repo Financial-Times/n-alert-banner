@@ -53,8 +53,10 @@ This HTML demonstrates the declarative way to instantiate n-alert-banner. Initia
     </div>
 </div>
 ```
+#### Additional optional data components
 
-If you do not wish for the user to be able to close the alert banner add `data-n-alert-banner-close-button="false"` to your HTML.
+  - `data-n-alert-banner-selected-parent-element="#site-navigation"`: allows for stipulation of where the alertBanner is to be inserted on the page. Default is document body. Must include attribute type (i.e. `#`, `.`, etc)
+  - `data-n-alert-banner-close-button="false"`: prevents close button from being built.
 
 ### Build
 
@@ -85,8 +87,6 @@ const myAlertBanner = new AlertBanner(null, {
     linkUrl: '#feedback-link'
 });
 ```
-If you do not wish for the user to be able to close the alert banner use `noCloseButton: true`.
-
 The [available options](#options) are documented below.
 
 #### Manipulating an n-alert-banner
@@ -103,15 +103,16 @@ There are several options used to change the appearance or behaviour of n-alert-
   - `autoOpen`: Boolean. Whether to automatically open the alert banner. Defaults to `true`
   - `bannerClass`: String. The top-level banner class, which other classes will be based on. Defaults to `n-alert-banner`
   - `contentLongBold`: String. Bolded content to display on larger screens, or all screens if `contentShort` is not specified. Defaults to `&hellip;`
-	- `contentLong`: String. The content following contentLongBold to display on larger screens, or all screens if `contentShort` is not specified. Defaults to `&hellip;`
+  - `contentLong`: String. The content following contentLongBold to display on larger screens, or all screens if `contentShort` is not specified. Defaults to `&hellip;`
   - `contentShort`: String. The content to display on smaller screens. Defaults to the value of `contentLongBold` and `contentLong`
   - `buttonLabel`: String. The banner button label. Set to `null` to hide the button. Defaults to `null`.
   - `buttonUrl`: String. The URL the button links to. Defaults to `#`
   - `linkLabel`: String. The banner link label. Set to `null` to hide the link. Defaults to `null`
   - `linkUrl`: String. The URL the link links to. Defaults to `#`
-  - `closeButtonLabel`: String. The hidden accessible label for the close button. Defaults to `Close`.
+  - `closeButtonLabel`: String. The hidden accessible label for the close button. Defaults to `Close`
   - `theme`: String. Themes to apply to the alert banner. [See the themes documentation](#themes) for available values. Defaults to `null`
-	- `noCloseButton`: Boolean. True prevents close button from being created. Defaults to `false`
+  - `noCloseButton`: Boolean. True prevents close button from being created. Defaults to `false`
+  - `selectedParentElement`: String. Allows for stipulation of where the alertBanner is to be inserted on the page. Default is on the document body. Must include attribute type (i.e. `#`, `.`, etc). If parent element is not found it will default to the top of the body.
 
 ### Sass
 

@@ -3,7 +3,7 @@ import stubs from './stubs';
 import { createOneLineString } from './utils';
 
 export default {
+	createOneLineString,
 	fixtures,
 	stubs,
-	createOneLineString
 };
