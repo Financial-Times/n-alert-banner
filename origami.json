@@ -22,10 +22,31 @@
 	},
 	"demos": [
 		{
+			"name": "alert-banner-error",
+			"template": "demos/src/alert-banner-error.mustache",
+			"description": "shows an error alert banner"
+		},
+		{
+			"name": "alert-banner-neutral",
+			"template": "demos/src/alert-banner-neutral.mustache",
+			"description": "shows a neutral alert banner"
+		},
+		{
+			"name": "alert-banner-success",
+			"template": "demos/src/alert-banner-success.mustache",
+			"description": "shows a success alert banner"
+		},
+		{
 			"name": "alert-banner-build",
 			"template": "demos/src/alert-banner-build.mustache",
 			"description": "builds an alert banner",
 			"js": "demos/src/server-side-build.js"
+		},
+		{
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"hidden": true,
+			"description": "Accessibility tests will be run against this demo"
 		}
 	]
 }
