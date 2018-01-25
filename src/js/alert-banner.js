@@ -18,7 +18,7 @@ class AlertBanner {
 
 		// Default the options
 		const alertBannerClass = options && options.alertBannerClass ? options.alertBannerClass : constants.DEFAULT_ALERT_BANNER_CLASS;
-		const noCloseButton = this.alertBannerElement && this.alertBannerElement.querySelector('[data-n-alert-banner-close-button="false"]') !== null || options && options.noCloseButton === true;
+		const noCloseButton = this.alertBannerElement && this.alertBannerElement.querySelector(constants.NO_CLOSE_BUTTON) !== null || options && options.noCloseButton === true;
 
 		this.options = Object.assign({}, {
 			autoOpen: true,
