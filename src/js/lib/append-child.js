@@ -1,11 +1,11 @@
-export default function appendChild (parent, element) {
+export default function appendChild (elementSelected, alertBanner, position) {
 
 	try {
-		parent.appendChild(element);
+		position(elementSelected, alertBanner);
 	}
 	catch (err) {
 		console.warn(err);
-		document.body.insertBefore(element, document.body.firstChild);
+		document.body.insertBefore(alertBanner, document.body.firstChild);
 	}
 
 }

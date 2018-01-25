@@ -2,6 +2,7 @@ import buildElement from './lib/build-element';
 import getOptions from './lib/get-options';
 import appendChild from './lib/append-child';
 import * as constants from './constants';
+import positionAlertBanner from './lib/position-alert-banner';
 /**
  * Represents a alertBanner.
  */
@@ -46,7 +47,8 @@ class AlertBanner {
 			linkUrl: '#',
 			closeButtonLabel: 'Close',
 			noCloseButton: noCloseButton || false,
-			selectedParentElement: false,
+			selectedAppendElement: false,
+			selectedPrependElement: false,
 
 			theme: null
 
@@ -74,9 +76,22 @@ class AlertBanner {
 			this.alertBannerElement = buildElement.alertBanner(this.options);
 		}
 
+		let positionOfAlertBanner;
+		let parentElementAttributeValue;
+
+		if (this.options.selectedAppendElement) {
+			positionOfAlertBanner = positionAlertBanner.appendChild;
+			parentElementAttributeValue = this.options.selectedAppendElement
+		} else if (this.options.selectedPrependElement) {
+			positionOfAlertBanner = positionAlertBanner.prepend;
+			parentElementAttributeValue = this.options.selectedPrependElement
+		} else {
+			positionOfAlertBanner = positionAlertBanner.appendChild;
+		}
+
 		// attach alertBanner to specified parentElement or default to document body
-		let parentElement = this.options.selectedParentElement ? document.querySelector(this.options.selectedParentElement) : document.body;
-		appendChild(parentElement, this.alertBannerElement);
+		let parentElement = parentElementAttributeValue ? document.querySelector(parentElementAttributeValue) : document.body;
+		appendChild(parentElement, this.alertBannerElement, positionOfAlertBanner);
 
 		// Select all the elements we need
 		this.innerElement = this.alertBannerElement.querySelector(constants.ALERT_BANNER_INNER_ELEMENT);
@@ -84,7 +99,7 @@ class AlertBanner {
 		if (!this.options.noCloseButton) {
 			// Build the close button
 			this.closeButtonElement = buildElement.closeButton(this);
-			appendChild(this.innerElement, this.closeButtonElement);
+			appendChild(this.innerElement, this.closeButtonElement, positionAlertBanner.appendChild);
 		}
 
 	}
