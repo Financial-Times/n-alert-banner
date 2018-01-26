@@ -12,7 +12,7 @@ export const main = `
 			<div class="n-alert-banner__action">
 				<a href="#" class="n-alert-banner__button">button label</a>
 			</div>
-			<div class="n-alert-banner__action n-alert-banner__action--secondary">
+			<div class="n-alert-banner__action n-alert-banner__action--primary">
 				<a href="#" class="n-alert-banner__link">link label</a>
 			</div>
 		</div>
@@ -34,7 +34,7 @@ export const attachToNavMain = `
 			<div class="n-alert-banner__action">
 				<a href="#" class="n-alert-banner__button">button label</a>
 			</div>
-			<div class="n-alert-banner__action n-alert-banner__action--secondary">
+			<div class="n-alert-banner__action n-alert-banner__action--primary">
 				<a href="#" class="n-alert-banner__link">link label</a>
 			</div>
 		</div>
@@ -58,7 +58,7 @@ export const navParentElementOfAlertBanner = `
 				<div class="n-alert-banner__action">
 					<a href="#" class="n-alert-banner__button">button label</a>
 				</div>
-				<div class="n-alert-banner__action n-alert-banner__action--secondary">
+				<div class="n-alert-banner__action n-alert-banner__action--primary">
 					<a href="#" class="n-alert-banner__link">link label</a>
 				</div>
 			</div>
@@ -82,7 +82,7 @@ export const mainWithCloseButton = `
 			<div class="n-alert-banner__action">
 				<a href="#" class="n-alert-banner__button">button label</a>
 			</div>
-			<div class="n-alert-banner__action n-alert-banner__action--secondary">
+			<div class="n-alert-banner__action n-alert-banner__action--primary">
 				<a href="#" class="n-alert-banner__link">link label</a>
 			</div>
 		</div>
@@ -106,7 +106,7 @@ export const mainNoCloseButton = `
 			<div class="n-alert-banner__action">
 				<a href="#" class="n-alert-banner__button">button label</a>
 			</div>
-			<div class="n-alert-banner__action n-alert-banner__action--secondary">
+			<div class="n-alert-banner__action n-alert-banner__action--primary">
 				<a href="#" class="n-alert-banner__link">link label</a>
 			</div>
 		</div>
@@ -121,10 +121,10 @@ export const mockMain = `
 		<div class="mockOuterClass">
 			<div class="mockInnerClass" data-n-alert-banner-inner="">
 				<div class="mockContentClass mockContentLongClass">
-					<p><b>mockContentLongBold</b> mockContentLong</p>
+					mockContentLong
 				</div>
 				<div class="mockContentClass mockContentShortClass">
-					<p>mockContentShort</p>
+					mockContentShort
 				</div>
 				<div class="mockActionsClass">
 					<div class="mockActionClass">
@@ -144,7 +144,7 @@ export const noContentShort = `
 	<div class="mockOuterClass">
 		<div class="mockInnerClass" data-n-alert-banner-inner="">
 			<div class="mockContentClass mockContentLongClass">
-				<p><b>mockContentLongBold</b> mockContentLong</p>
+				mockContentLong
 			</div>
 			<div class="mockActionsClass">
 				<div class="mockActionClass">
@@ -164,10 +164,10 @@ export const noLink = `
 	<div class="mockOuterClass">
 		<div class="mockInnerClass" data-n-alert-banner-inner="">
 			<div class="mockContentClass mockContentLongClass">
-				<p><b>mockContentLongBold</b> mockContentLong</p>
+				mockContentLong
 			</div>
 			<div class="mockContentClass mockContentShortClass">
-				<p>mockContentShort</p>
+				mockContentShort
 			</div>
 			<div class="mockActionsClass">
 				<div class="mockActionClass">
@@ -184,10 +184,10 @@ export const noButtonLazyLoad = `
 	<div class="mockOuterClass">
 		<div class="mockInnerClass" data-n-alert-banner-inner="">
 			<div class="mockContentClass mockContentLongClass">
-				<p><b>mockContentLongBold</b> mockContentLong</p>
+				mockContentLong
 			</div>
 			<div class="mockContentClass mockContentShortClass">
-				<p>mockContentShort</p>
+				mockContentShort
 			</div>
 			<div class="mockActionsClass">
 				<div class="mockActionClass mockActionSecondaryClass">
@@ -205,10 +205,10 @@ export const mockTheme = `
 	<div class="mockOuterClass">
 		<div class="mockInnerClass" data-n-alert-banner-inner="">
 			<div class="mockContentClass mockContentLongClass">
-				<p><b>mockContentLongBold</b> mockContentLong</p>
+				mockContentLong
 			</div>
 			<div class="mockContentClass mockContentShortClass">
-				<p>mockContentShort</p>
+				mockContentShort
 			</div>
 			<div class="mockActionsClass">
 				<div class="mockActionClass">
