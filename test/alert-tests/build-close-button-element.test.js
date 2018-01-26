@@ -10,7 +10,7 @@ sinon.assert.expose(assert, {
 	prefix: ''
 });
 
-describe.only('.buildCloseButtonElement()', () => {
+describe('.buildCloseButtonElement()', () => {
 	let alertBannerElement;
 	let alertBanner;
 	let sandbox;
