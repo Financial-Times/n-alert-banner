@@ -5,3 +5,4 @@ export const ALERT_BANNER_DATA_COMPONENT = '[data-n-component="n-alert-banner"]'
 export const ALERT_BANNER_N_COMPONENT = 'data-n-component';
 export const ALERT_BANNER_OPEN = 'n.alertBannerOpened';
 export const ALERT_BANNER_CLOSED = 'n.alertBannerClosed';
+export const CLOSE_BUTTON_CLASS = 'n-alert-banner__close';
