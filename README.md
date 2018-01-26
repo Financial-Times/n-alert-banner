@@ -1,4 +1,4 @@
-# n-alert-banner [![Circle CI](https://circleci.com/gh/Financial-Times/n-alert-banner/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/n-alert-banner/tree/master)
+--primary# n-alert-banner [![Circle CI](https://circleci.com/gh/Financial-Times/n-alert-banner/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/n-alert-banner/tree/master)
 
 n-alert-banner is a component used for product messaging.
 
@@ -44,7 +44,7 @@ This HTML demonstrates the declarative way to instantiate n-alert-banner. Initia
                 <div class="n-alert-banner__action">
                     <a href="#" class="n-alert-banner__button">Button</a>
                 </div>
-                <div class="n-alert-banner__action--secondary">
+                <div class="n-alert-banner__action--primary">
                     <a href="#" class="n-alert-banner__link">Text link</a>
                 </div>
             </div>

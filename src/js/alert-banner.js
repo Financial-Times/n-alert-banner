@@ -31,7 +31,7 @@ class AlertBanner {
 			contentShortClass: `${alertBannerClass}__content--short`,
 			actionsClass: `${alertBannerClass}__actions`,
 			actionClass: `${alertBannerClass}__action`,
-			actionSecondaryClass: `${alertBannerClass}__action--secondary`,
+			actionSecondaryClass: `${alertBannerClass}__action--primary`,
 			buttonClass: `${alertBannerClass}__button`,
 			linkClass: `${alertBannerClass}__link`,
 			closeButtonClass: `${alertBannerClass}__close`,

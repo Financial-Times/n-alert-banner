@@ -71,7 +71,7 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 			contentShortClass: 'n-alert-banner__content--short',
 			actionsClass: 'n-alert-banner__actions',
 			actionClass: 'n-alert-banner__action',
-			actionSecondaryClass: 'n-alert-banner__action--secondary',
+			actionSecondaryClass: 'n-alert-banner__action--primary',
 			buttonClass: 'n-alert-banner__button',
 			linkClass: 'n-alert-banner__link',
 			closeButtonClass: 'n-alert-banner__close',
@@ -164,7 +164,7 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 			assert.strictEqual(alertBanner.options.contentShortClass, 'payment-alert__content--short');
 			assert.strictEqual(alertBanner.options.actionsClass, 'payment-alert__actions');
 			assert.strictEqual(alertBanner.options.actionClass, 'payment-alert__action');
-			assert.strictEqual(alertBanner.options.actionSecondaryClass, 'payment-alert__action--secondary');
+			assert.strictEqual(alertBanner.options.actionSecondaryClass, 'payment-alert__action--primary');
 			assert.strictEqual(alertBanner.options.buttonClass, 'payment-alert__button');
 			assert.strictEqual(alertBanner.options.linkClass, 'payment-alert__link');
 		});
