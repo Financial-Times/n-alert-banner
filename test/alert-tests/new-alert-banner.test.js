@@ -75,7 +75,6 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 			buttonClass: 'n-alert-banner__button',
 			linkClass: 'n-alert-banner__link',
 			closeButtonClass: 'n-alert-banner__close',
-			contentLongBold: '&hellip;',
 			contentLong: '&hellip;',
 			contentShort: null,
 			buttonLabel: null,

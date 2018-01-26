@@ -29,7 +29,6 @@ describe('buildElement.alertBanner()', () => {
 			actionSecondaryClass: 'mockActionSecondaryClass',
 			buttonClass: 'mockButtonClass',
 			linkClass: 'mockLinkClass',
-			contentLongBold: 'mockContentLongBold',
 			contentLong: 'mockContentLong',
 			contentShort: 'mockContentShort',
 			buttonLabel: 'mockButtonLabel',

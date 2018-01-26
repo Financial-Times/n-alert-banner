@@ -78,8 +78,7 @@ If you wish to create an alert banner from scratch with no existing DOM elements
 const AlertBanner = require('n-alert-banner');
 const myAlertBanner = new AlertBanner(null, {
     theme: 'error',
-    contentLongBold: 'Something went wrong!',
-    contentLong: 'Please check and try again.',
+    contentLong: 'Something went wrong! Please check and try again.',
     contentShort: 'Please check and try again.',
     buttonLabel: 'Button',
     buttonUrl: '#try-button',
@@ -98,13 +97,12 @@ Once you have an n-alert-banner instance, you can manipulate it using the follow
 
 #### Options
 
-There are several options used to change the appearance or behaviour of n-alert-banner. All of these are optional, but it's recommended to set at least `contentLongBold` or `contentLong`, `buttonLabel`, and `buttonUrl` or `linkLabel` and `linkUrl`. Set the following as properties on the second argument to `new AlertBanner`:
+There are several options used to change the appearance or behaviour of n-alert-banner. All of these are optional, but it's recommended to set at least `contentLong`, `buttonLabel`, and `buttonUrl` or `linkLabel` and `linkUrl`. Set the following as properties on the second argument to `new AlertBanner`:
 
   - `autoOpen`: Boolean. Whether to automatically open the alert banner. Defaults to `true`
   - `bannerClass`: String. The top-level banner class, which other classes will be based on. Defaults to `n-alert-banner`
-  - `contentLongBold`: String. Bolded content to display on larger screens, or all screens if `contentShort` is not specified. Defaults to `&hellip;`
-  - `contentLong`: String. The content following contentLongBold to display on larger screens, or all screens if `contentShort` is not specified. Defaults to `&hellip;`
-  - `contentShort`: String. The content to display on smaller screens. Defaults to the value of `contentLongBold` and `contentLong`
+  - `contentLong`: String. The content to display on larger screens, or all screens if `contentShort` is not specified. Defaults to `&hellip;`
+  - `contentShort`: String. The content to display on smaller screens. Defaults to the value of `contentLong`
   - `buttonLabel`: String. The banner button label. Set to `null` to hide the button. Defaults to `null`.
   - `buttonUrl`: String. The URL the button links to. Defaults to `#`
   - `linkLabel`: String. The banner link label. Set to `null` to hide the link. Defaults to `null`

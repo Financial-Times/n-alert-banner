@@ -121,10 +121,10 @@ export const mockMain = `
 		<div class="mockOuterClass">
 			<div class="mockInnerClass" data-n-alert-banner-inner="">
 				<div class="mockContentClass mockContentLongClass">
-					<p><b>mockContentLongBold</b> mockContentLong</p>
+					mockContentLong
 				</div>
 				<div class="mockContentClass mockContentShortClass">
-					<p>mockContentShort</p>
+					mockContentShort
 				</div>
 				<div class="mockActionsClass">
 					<div class="mockActionClass">
@@ -144,7 +144,7 @@ export const noContentShort = `
 	<div class="mockOuterClass">
 		<div class="mockInnerClass" data-n-alert-banner-inner="">
 			<div class="mockContentClass mockContentLongClass">
-				<p><b>mockContentLongBold</b> mockContentLong</p>
+				mockContentLong
 			</div>
 			<div class="mockActionsClass">
 				<div class="mockActionClass">
@@ -164,10 +164,10 @@ export const noLink = `
 	<div class="mockOuterClass">
 		<div class="mockInnerClass" data-n-alert-banner-inner="">
 			<div class="mockContentClass mockContentLongClass">
-				<p><b>mockContentLongBold</b> mockContentLong</p>
+				mockContentLong
 			</div>
 			<div class="mockContentClass mockContentShortClass">
-				<p>mockContentShort</p>
+				mockContentShort
 			</div>
 			<div class="mockActionsClass">
 				<div class="mockActionClass">
@@ -184,10 +184,10 @@ export const noButtonLazyLoad = `
 	<div class="mockOuterClass">
 		<div class="mockInnerClass" data-n-alert-banner-inner="">
 			<div class="mockContentClass mockContentLongClass">
-				<p><b>mockContentLongBold</b> mockContentLong</p>
+				mockContentLong
 			</div>
 			<div class="mockContentClass mockContentShortClass">
-				<p>mockContentShort</p>
+				mockContentShort
 			</div>
 			<div class="mockActionsClass">
 				<div class="mockActionClass mockActionSecondaryClass">
@@ -205,10 +205,10 @@ export const mockTheme = `
 	<div class="mockOuterClass">
 		<div class="mockInnerClass" data-n-alert-banner-inner="">
 			<div class="mockContentClass mockContentLongClass">
-				<p><b>mockContentLongBold</b> mockContentLong</p>
+				mockContentLong
 			</div>
 			<div class="mockContentClass mockContentShortClass">
-				<p>mockContentShort</p>
+				mockContentShort
 			</div>
 			<div class="mockActionsClass">
 				<div class="mockActionClass">

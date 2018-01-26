@@ -36,7 +36,6 @@ class AlertBanner {
 			linkClass: `${alertBannerClass}__link`,
 			closeButtonClass: `${alertBannerClass}__close`,
 
-			contentLongBold: '&hellip;',
 			contentLong: '&hellip;',
 			contentShort: null,
 			buttonLabel: null,
