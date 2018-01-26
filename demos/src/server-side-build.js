@@ -12,7 +12,8 @@ function initDemos() {
 				buttonLabel: 'Button',
 				buttonUrl: '#try-button',
 				linkLabel: 'Text link',
-				linkUrl: '#feedback-link'
+				linkUrl: '#feedback-link',
+				appendToElement: '#site-navigation'
 			});
 		});
 
@@ -25,7 +26,8 @@ function initDemos() {
 				buttonLabel: 'Button',
 				buttonUrl: '#try-button',
 				linkLabel: 'Text link',
-				linkUrl: '#feedback-link'
+				linkUrl: '#feedback-link',
+				appendToElement: '#ttt'
 			});
 		});
 

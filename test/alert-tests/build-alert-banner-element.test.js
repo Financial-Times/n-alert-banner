@@ -2,7 +2,7 @@
 import buildElement from '../../src/js/lib/build-element';
 import * as assert from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
-import { fixtures, createOneLineString } from './helpers/index';
+import { createOneLineString, fixtures } from './helpers/index';
 
 sinon.assert.expose(assert, {
 	includeFail: false,
@@ -84,7 +84,7 @@ describe('buildElement.alertBanner()', () => {
 		});
 
 		it('does not include a button', () => {
-			assert.strictEqual(createOneLineString(returnValue.outerHTML), createOneLineString(fixtures.noButton));
+			assert.strictEqual(createOneLineString(returnValue.outerHTML), createOneLineString(fixtures.noButtonLazyLoad));
 		});
 
 	});
