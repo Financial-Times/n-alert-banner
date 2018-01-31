@@ -34,7 +34,7 @@
 			@include alertBannerAction;
 		}
 
-		&__action--secondary {
+		&__action--secondary:nth-child(2) {
 			@include alertBannerActionSecondary;
 		}
 
