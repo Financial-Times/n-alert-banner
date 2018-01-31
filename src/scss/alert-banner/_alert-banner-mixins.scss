@@ -101,11 +101,10 @@
 @mixin alertBannerLink {
 	@include oGridRespondTo($until: M) {
 		@include oTypographySans($scale: -1);
-		margin-right: 60px;
 	}
 	@include oTypographySans($scale: 0);
-	height: 28px;
 	white-space: nowrap;
+	height: 28px;
 }
 
 @mixin alertBannerCloseButton {
