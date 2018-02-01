@@ -39,8 +39,7 @@
 		{
 			"name": "alert-banner-build",
 			"template": "demos/src/alert-banner-build.mustache",
-			"description": "builds an alert banner",
-			"js": "demos/src/server-side-build.js"
+			"description": "builds an alert banner"
 		},
 		{
 			"name": "pa11y",

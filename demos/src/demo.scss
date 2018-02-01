@@ -7,10 +7,16 @@ body {
 	background-color: oColorsGetPaletteColor('paper');
 }
 
-.demo-buttons {
+.header {
+	margin-bottom: 50px;
+	height: 20px;
+	background-color: #dddddd;
+}
+
+.buttons {
 	padding: 20px 0 0 20px;
 }
-.demo-button {
+.buttons > button {
 	@include oButtons();
 }
 

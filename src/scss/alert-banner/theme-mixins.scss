@@ -3,6 +3,8 @@
 		@include nAlertBannerErrorMixins($class);
 	} @else if $theme == 'success' {
 		@include nAlertBannerSuccessMixins($class);
+	} @else if $theme == 'marketing' {
+		@include nAlertBannerMarketingMixins($class);
 	} @else if $theme == 'neutral' {
 		@include nAlertBannerNeutralMixins($class);
 	}
