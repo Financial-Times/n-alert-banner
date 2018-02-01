@@ -1,0 +1,33 @@
+@mixin nAlertBannerMarketingMixins($class) {
+	$tealBackgroundColor: oColorsGetPaletteColor('teal-80');
+	$tealTextColor: oColorsGetPaletteColor('black');
+
+	.#{$class}--marketing {
+
+		.#{$class}__outer {
+			@include alertBannerOuterTheme($tealBackgroundColor);
+		}
+
+		.#{$class}__inner {
+			@include alertBannerInnerTheme($tealTextColor);
+		}
+
+		.#{$class}__button {
+			@include oButtonsCustomTheme('white', 'black', primary);
+			// This is a hack around the fact that custom buttons do not
+			// support buttons with three colours. TODO: add this to o-buttons
+			// https://github.com/Financial-Times/o-buttons/issues/128
+			&:not([disabled]):hover {
+				background-color: oColorsMix('teal-90', 'black', 80);
+			}
+		}
+
+		.#{$class}__link {
+			@include alertBannerLinkTheme($tealTextColor);
+		}
+
+		.#{$class}__close {
+			@include alertBannerCloseButtonTheme($tealTextColor);
+		}
+	}
+}

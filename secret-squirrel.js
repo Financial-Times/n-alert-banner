@@ -5,6 +5,7 @@ module.exports = {
 			'demos/src/alert-banner-error.mustache',
 			'demos/src/alert-banner-neutral.mustache',
 			'demos/src/alert-banner-success.mustache',
+			'demos/src/alert-banner-marketing.mustache',
 			'demos/src/pa11y.mustache'
 		],
 		allowOverrides: []

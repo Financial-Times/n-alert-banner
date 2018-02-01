@@ -7,6 +7,9 @@ node_modules/@financial-times/n-gage/index.mk:
 
 export IGNORE_A11Y = true
 
+build:
+	./node_modules/.bin/obt build
+
 demo:
 	./node_modules/.bin/obt demo --run-server --watch
 
