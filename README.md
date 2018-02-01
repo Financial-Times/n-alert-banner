@@ -144,6 +144,10 @@ n-alert-banner has the following built-in themes:
 
 	![Success alert banner example](docs/success-alert-banner.png?raw=true "Success")
 
+  - `marketing`: Displays a marketing alert banner (teal colour scheme)
+
+	![Success alert banner example](docs/marketing-alert-banner.png?raw=true "Success")
+
 In the markup, these can be applied as classes alongside the `n-alert-banner class`. They are exposed as modifiers:
 
 ```html
