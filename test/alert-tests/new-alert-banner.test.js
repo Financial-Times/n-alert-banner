@@ -268,9 +268,8 @@ describe('new AlertBanner(alertBannerElement, options)', () => {
 				assert.strictEqual(alertBanner.alertBannerElement, mockAlertElement);
 			});
 
-			it('appends the alertBanner element to the body', () => {
-				assert.calledOnce(document.body.appendChild);
-				assert.calledWithExactly(document.body.appendChild, mockAlertElement);
+			it('doesn\`t append the alertBanner element to the body', () => {
+				assert.notCalled(document.body.appendChild);
 			});
 
 		});
