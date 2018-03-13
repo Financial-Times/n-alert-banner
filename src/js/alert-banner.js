@@ -73,9 +73,10 @@ class AlertBanner {
 		}
 
 		// attach alertBanner to specified parentElement or default to document body
-		let parentElement = this.options.appendToElement ? document.querySelector(this.options.appendToElement) : document.body;
-		appendChild(parentElement, this.alertBannerElement);
-
+		if (this.options.appendToElement) {
+			let parentElement = document.querySelector(this.options.appendToElement);
+			appendChild(parentElement, this.alertBannerElement);
+		}
 		// Select all the elements we need
 		this.innerElement = this.alertBannerElement.querySelector(constants.ALERT_BANNER_INNER_ELEMENT);
 
