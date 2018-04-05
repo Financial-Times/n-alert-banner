@@ -8,6 +8,7 @@ n-alert-banner is a component used for product messaging.
   - [Build](#build)
   - [Sass](#sass)
   - [Themes](#themes)
+- [Install and Run](#install and run)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -102,7 +103,7 @@ There are several options used to change the appearance or behaviour of n-alert-
   - `autoOpen`: Boolean. Whether to automatically open the alert banner. Defaults to `true`
   - `bannerClass`: String. The top-level banner class, which other classes will be based on. Defaults to `n-alert-banner`
   - `contentLong`: String. The content to display on larger screens, or all screens if `contentShort` is not specified. Defaults to `&hellip;`
-  - `contentShort`: String. The content to display on smaller screens. Defaults to the value of `contentLong`
+  - `contentShort`: String. The content to display on smaller screens. If this is omitted, screen sizes with a width smaller than 740 will not have content.
   - `buttonLabel`: String. The banner button label. Set to `null` to hide the button. Defaults to `null`.
   - `buttonUrl`: String. The URL the button links to. Defaults to `#`
   - `linkLabel`: String. The banner link label. Set to `null` to hide the link. Defaults to `null`
@@ -164,6 +165,14 @@ const myBanner = new AlertBanner({
     theme: 'success'
 });
 ```
+
+## Install and run
+
+ - make install
+ - make build
+ - make demo
+
+ - Go to http://localhost:8999/demos/local/
 
 ---
 
