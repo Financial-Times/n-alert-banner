@@ -8,7 +8,7 @@ n-alert-banner is a component used for product messaging.
   - [Build](#build)
   - [Sass](#sass)
   - [Themes](#themes)
-- [Install and Run](#install and run)
+- [Install and Run](#install-and-run)
 - [Contact](#contact)
 - [Licence](#licence)
 
