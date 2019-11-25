@@ -35,7 +35,7 @@
 	}
 	b,
 	strong {
-		@include oTypographyBold($font: 'sans');
+		@include oTypographySans($weight: 'semibold');
 	}
 }
 
@@ -93,7 +93,9 @@
 	@include oGridRespondTo($until: M) {
 		@include oTypographySans($scale: -1);
 	}
-	@include oButtons();
+	@include oButtonsContent($opts: (
+		'type': 'secondary'
+	));
 	white-space: nowrap;
 	height: 28px;
 }

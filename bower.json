@@ -17,6 +17,6 @@
     "main.js"
   ],
   "dependencies": {
-    "n-ui-foundations": "^3.0.0"
+    "n-ui-foundations": "^4.0.0-beta.1"
   }
 }

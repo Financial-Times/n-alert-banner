@@ -1,6 +1,6 @@
 @mixin nAlertBannerNeutralMixins($class) {
-	$neutralBackgroundColor: oColorsGetPaletteColor('white-60');
-	$neutralTextColor: oColorsGetPaletteColor('black');
+	$neutralBackgroundColor: oColorsByName('white-60');
+	$neutralTextColor: oColorsByName('black');
 
 	.#{$class}--neutral {
 

@@ -1,22 +1,31 @@
 @mixin alertBannerContentNeutral {
 	&::before {
-		@include oIconsGetIcon('warning', oColorsGetColorFor(alert-banner-warning-icon, text), 20);
+		@include oIconsContent(
+			$icon-name: 'warning',
+			$color: oColorsByUsecase('n-alert-banner/warning-icon', 'text'),
+			$size: 20
+		);
 		padding: 1px;
-		background-color: oColorsGetColorFor(alert-banner-warning-icon, background-neutral);
+		background-color: oColorsByUsecase('n-alert-banner/warning-icon', 'background');
 		border-radius: 50%;
 		margin: 10px;
 	}
 }
 
 @mixin alertBannerButtonNeutral {
-	@include oButtonsCustomTheme(oColorsGetUseCase(alert-banner-button, background-neutral), oColorsGetUseCase(alert-banner-button, text-neutral));
+	@include oButtonsContent($opts: (
+		'type': 'secondary',
+		'theme': (
+			'color': oColorsByUsecase('n-alert-banner/button', 'text'),
+			'context': oColorsByUsecase('n-alert-banner/button', 'background')
+		)
+	), $include-base-styles: false);
 }
 
 @mixin alertBannerLinkNeutral {
-	@include oTypographyLinkCustom(
-		$baseColor: oColorsGetUseCase(alert-banner-link, text-neutral),
-		$hoverColor: oColorsGetUseCase(alert-banner-link, text-neutral),
-		$outlineColor: oColorsGetUseCase(alert-banner-link, text-neutral),
-		$backgroundColor: oColorsGetUseCase(alert-banner-link, background-neutral)
-	);
+	@include oTypographyLink($theme: (
+		'base': oColorsByUsecase('n-alert-banner/link', 'text'),
+		'hover': oColorsByUsecase('n-alert-banner/link', 'text'),
+		'context': oColorsByUsecase('n-alert-banner/link', 'background')
+	));
 }

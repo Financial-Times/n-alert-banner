@@ -1,6 +1,10 @@
 @mixin alertBannerContentError($errorBackgroundColor, $errorTextColor) {
 	&::before {
-		@include oIconsGetIcon('warning', $errorBackgroundColor, 20);
+		@include oIconsContent(
+			$icon-name: 'warning',
+			$color: $errorBackgroundColor,
+			$size: 20
+		);
 		padding: 1px;
 		background-color: $errorTextColor;
 		border-radius: 50%;
