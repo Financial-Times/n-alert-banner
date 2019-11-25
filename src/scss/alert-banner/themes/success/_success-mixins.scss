@@ -1,6 +1,10 @@
 @mixin alertBannerContentSuccess($successTextColor) {
 	&::before {
-		@include oIconsGetIcon('tick', $successTextColor, 20);
+		@include oIconsContent(
+			$icon-name: 'tick',
+			$color: $successTextColor,
+			$size: 20
+		);
 		align-items: center;
 		padding: 10px;
 		white-space: nowrap;

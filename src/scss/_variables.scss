@@ -1,5 +1,5 @@
 $n-alert-banner-is-silent: true !default;
 
 $_n-alert-banner-themes: ('error', 'neutral', 'success', 'marketing');
-$_n-alert-banner-spacing: oTypographySpacingSize($units: 10) !default;
+$_n-alert-banner-spacing: 40px !default;
 $_n-alert-banner-close-button-size: 28 !default;

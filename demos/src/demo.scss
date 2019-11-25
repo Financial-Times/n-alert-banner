@@ -1,10 +1,12 @@
 $n-alert-banner-is-silent: false;
 @import '../../main';
 
+@include oButtons();
+
 body {
 	font-family: MetricWeb;
 	min-height: 350px;
-	background-color: oColorsGetPaletteColor('paper');
+	background-color: oColorsByName('paper');
 }
 
 .header {
@@ -15,9 +17,6 @@ body {
 
 .buttons {
 	padding: 20px 0 0 20px;
-}
-.buttons > button {
-	@include oButtons();
 }
 
 .n-alert-banner--static {

@@ -36,5 +36,9 @@
 }
 
 @mixin alertBannerCloseButtonTheme($textColor) {
-	@include oIconsGetIcon('cross', $textColor, $_n-alert-banner-close-button-size);
+	@include oIconsContent(
+		$icon-name: 'cross',
+		$color: $textColor,
+		$size: $_n-alert-banner-close-button-size
+	);
 }
