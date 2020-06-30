@@ -1,5 +1,7 @@
 # n-alert-banner [![Circle CI](https://circleci.com/gh/Financial-Times/n-alert-banner/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/n-alert-banner/tree/master)
 
+⚠️ This package is deprecated. ⚠️
+
 n-alert-banner is a component used for product messaging.
 
 - [Usage](#usage)
